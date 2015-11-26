@@ -1,10 +1,17 @@
 \documentclass[11pt]{article}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Shifman \& Cole}
+\lhead{BIO4134 Final Project Proposal}
+\rfoot{Page \thepage}
+
 \graphicspath{ {/Users/yvesmarcel/Documents/sFDR_paper/assets/images/} }
 \begin{document}
-\title{Extending the Fitzhugh Nagumo Excitable Tissue Model to Model Cardiac Necrosis}
-\author{Aaron R. Shifman $^{1,2}$, Christopher B. Cole $^{2,3}$}
+\title{Extending the Fitzhugh Nagumo Excitable Tissue Model to Model Myocardial Necrosis}
+\author{Aaron R. Shifman, Christopher B. Cole}
 \maketitle
 \tableofcontents
 %\tableoffigures
@@ -16,7 +23,7 @@ Neuroscience frequently relies on robust mathematical models to simulate and inv
 
 \section{Examination of the Fitzhugh Nagumo Model}
 
-The modelling of neurons and associated action potentials started in the early 1900s with the \"integrate and fire\" model. In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^1$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van-der-Pol oscillator. This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
+The modelling of neurons and associated action potentials started in the early 1900s with the ``integrate and fire'' model.$^1$ In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^2$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van-der-Pol oscillator.$^3$ This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
@@ -28,6 +35,7 @@ p_{open_{Na}} &= m^3h\\
 p_{open_{l}} &\equiv 1\\
 \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h}\\
 \end{align}
+
 This is impossible to solve analytically, and quite difficult to explore numerically due to the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
 % <- maybe talk about calcium plateaeu 
@@ -61,7 +69,7 @@ The model itself is already non-dimensionalized, though in our analysis we will 
 
 %end original model, begin extension
 
-\section{Modelling Cardiac Necrosis} 
+\section{Modelling Myocardial Necrosis} 
 \subsection{Necrosis Propagation}
 
 As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
@@ -74,9 +82,11 @@ We want to ask how the temporal effects and distribution of cardiac death affect
 
 Define $D$, the delay in the enntire system caused by pro-necrotic built up, such that $D=T_n - T_t$ where $T_r$ represents the period of the network without disease and $T_t$ represents the period of the network at time $t$. 
 
-Consider a system with two, gap junctionally connected, neurons $N_1$ and $N_2$. $D$ is a function such that $D(\nu_1 N_1, \nu_2 N_1)$ defines the system's delay caused by $\nu_1$ at $N_1$ and $\nu_2$ at $N_2$. It is our hypothesis: 
+Consider a system with two, gap junctionally connected, neurons $N_1$ and $N_2$. $D$ is a function such that $D(N_1(\nu_1), N_2(\nu_2))$ defines the system's delay caused by $\nu_1$ at $N_1$ and $\nu_2$ at $N_2$. It is our hypothesis: 
 
-$$ \begin{aligned} \nu_1 &= \alpha \\ \nu_2 &= \beta \\ \nu_3 &= \beta + \alpha \\ \nu_4 &= 1 \\ D(\nu_1 N_1, \nu_2 N_1) &= D(\nu_3 N_1, \nu_4 N_1) \end{aligned} $$ 
+\begin{align} 
+\nu_1 &= \alpha \\ \nu_2 &= \beta \\ \nu_3 &= \beta + \alpha \\ \nu_4 &= 1 \\ D(N_1(\nu_1), N_2(\nu_2)) &= D(N_1(\nu_3), N_2(\nu_4)) 
+\end{align} 
 
 To examine and support our hypothesis, we will computationally model the above model using the FN model and gap junctionaly coupled cardiac myocytes. We will construct graphics that demonstrate and illustrate our hypothesis.
 
@@ -92,7 +102,15 @@ The above will be examined in both a static ($\nu_1$ remains contant with time) 
 
 \subsection{Translational Perspective} %how the model relates to disease
 
-The heart serves to transport blood - an essential function for life, in other words, should the heart fail to deliver a the requisite amount of blood, the organism will die. What we have done here is to create a model where we look at “heart rate” as a function of disease, and we can evaluate death (some threshold frequency) as a function of disease and distribution as a first pass into understanding cardiac death.
+The heart serves a vital role in many organisms. The timely and regular delivery of oxygenated blood is essential to survival, and thus any decrease from optimum efficiency is of consequence. Investigations into potential mechanistic explainations and modeling of this degradation are highly interesting in the context of both accute and chronic cardiac disease.
+
+In particular, myocardial necrosis can be caused by accute oxygen deprivation of myocardial tissues, commonly experienced during a heart attack. Other potential etiologies stem from depriving this tissue of the blood it requires; dangerous increase in physical stresses, coronary artery disease, and accute hemerage all have the potential to play into cardiac necrosis, perhaps in tandem. 
+
+In our investigation into the decreasing efficiency of a heart-like system, we will model several scenarios that may be of consequence to sufferers of cardiac necrosis. In particular, we study two cases. The first, static necrosis, closely resembles a short term or acute stress on myocardial tissue, be it a myocardial infarction or trauma. We will investigate how the distribution of necrosis affects the system as a whole through the FN model. Through a translation lens, this equates to the decrease in efficiency as a consequence of various kinds of trauma. The second case will be a slowly increasing level of necrosis. This more closely resembles coronary artery disease, which has the potential to starve the tissues of oxygen for many years, slowly leading to health deficits in older age. We study the approximate timeframe for simulated tachycardia, or dangerously low heart beat. 
+
+Throughout the investigation, we refer to a cell's necrosis burden as analagous to a protein build up, though this simply refers to the degree of degredation for that specific cell.
+
+Our proposed extension to the FN model plans to shed light on the geneisis, progression, and finally the consequences of myocardial necrosis. 
 
 \section{Discussion of Report} % (fold)
 \label{sec:discussion_of_report}
@@ -141,7 +159,7 @@ We propose the following format for the final report:
 \subsection{Timeline} % (fold)
 \label{sub:timeline}
 
-We propose a checkup in two weeks time to assess our progress and make sure that the project presented is reasonable in scope for the course. If possible, we would like to present a draft to ensure that we are on the right path. 
+We propose a checkup in approximately one week to assess our progress and make sure that the project presented is reasonable in scope for the course. If possible, we would like to present a draft to ensure that we are on the right path. 
 
 % subsection timeline (end)
 
@@ -155,7 +173,8 @@ We propose a checkup in two weeks time to assess our progress and make sure that
 \label{sec:references}
 
 \begin{enumerate}
-	\item HODGKIN, A. L., HUXLEY, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. J. Physiol. 117, 500–44 \(1952\).
+	\item Abbott, L. . Lapicque’s introduction of the integrate-and-fire model neuron \(1907\). Brain Res. Bull. 50, 303–304 \(1999\).
+	\item Hodgkin, A. L., Huxley, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. J. Physiol. 117, 500–44 \(1952\).
 	\item Haefner, J. W. Models of Systems. Modeling Biological Systems: Principles and Applications \(Springer, 2005\). doi:10.1007/0-387-25012-3\_1
 \end{enumerate}
 

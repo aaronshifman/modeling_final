@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \graphicspath{ {/Users/yvesmarcel/Documents/sFDR_paper/assets/images/} }
 \begin{document}
-\title{Extending the Fitzhugh Nagumo Model of Relaxation Oscillators to Model Cardiac Necrosis}
+\title{Extending the Fitzhugh Nagumo Excitable Tissue Model to Model Cardiac Necrosis}
 \author{Aaron R. Shifman $^{1,2}$, Christopher B. Cole $^{2,3}$}
 \maketitle
 \tableofcontents
@@ -11,12 +11,12 @@
 
 \begin{abstract}
 
-Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model of relaxation oscillators and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in cardiac necrosis and examine the effect of necrosis distribution on a one dimensional system using a propagation model with boundary conditions. 
+Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model, and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in cardiac necrosis and examine the effect of necrosis on a one dimensional cardiac model. 
 \end{abstract}
 
 \section{Examination of the Fitzhugh Nagumo Model}
 
-The modelling of neurons and associated action potentials started in the early 1900s with the \"integrate and fire\" model on analogue computers. In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^1$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Hudley model (activation and recovery) using a modified van-der-pol oscillator. This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
+The modelling of neurons and associated action potentials started in the early 1900s with the \"integrate and fire\" model. In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^1$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van-der-Pol oscillator. This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
@@ -28,24 +28,25 @@ p_{open_{Na}} &= m^3h\\
 p_{open_{l}} &\equiv 1\\
 \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h}\\
 \end{align}
-This is impossible to solve analytically, and quite difficult to explore numerically due to the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Vanderpol oscillator). This model, while not looking like steroetyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
+This is impossible to solve analytically, and quite difficult to explore numerically due to the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
 % <- maybe talk about calcium plateaeu 
 %is there anything here to cite? i feel like we should cite stuff
+% - meh I don’t think we do
 
 \subsection{Model Rationale and Variables}
 
-The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Vanderpol model, however it is topologically equivalent and much easier to analyse. More information in section 1.4.
+The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van-der-Pol model, however it is topologically equivalent and much easier to analyse.
 
-\begin{align} \frac{dV}{dt} &= V(a+V)(1-V) -W + z \\
-\frac{dW}{dt} &= bV-cW \end{align}
+\begin{align} \frac{dV}{dt} &= V(\alpha+V)(1-V) -W + z \\
+\frac{dW}{dt} &= \beta V-cW \end{align}
 
-In this model, $\chi$ - in general - represents activation, and in an excitable tissue context represents voltage. and $\gamma$ - in general represents recovery, and has no realistic interpretation in a biological context. There are three parameters in the model, $\alpha$, $\beta$, and $z$. Of the three parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC offset from experimentally injected current of the neuron under study. In our extension to this model, we will alter $z$ proportion to the dampening of current between neurons. The additional parameters $\alpha$ and $\beta$ represent rate - like constants which determine oscillator frequency and duty cycle, as well as excitability.
+In this model, $V$ - in general - represents activation, and in an excitable tissue context represents voltage. and $W$ - in general represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive \( W.R.T. cell \) currents. There are three parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the three parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC offset from experimentally injected current of the neuron under study. In our extension to this model, we will replace $z$ with a gap junctional current from coupled cells (more in section 2). The additional parameters $\alpha$, $\beta$, and $c$ represent `rate - like' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
 
 
 \subsection{Purpose of Model and Examination}
 
-This model, a simplification of the original HH model, intends to model the spiking and relaxation of neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of of parameters can also model various neuronal behaviors such as bursting and chattering. These models can be put together to form multi dimensional models of neuron trends. The excitation and relaxation of the neuron relies on the $z$ parameter to determine its stability, as discussed in the next section. 
+This model, a simplification of the original Hodgkin Huxley model, intends to model spiking neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of of parameters can also model various neuronal behaviors such as bursting and chattering. These models can be put together to form multi dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
 In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. %cite the chattering probably
 
 Additionally, we will examine and interpret the 
@@ -63,28 +64,28 @@ The model itself is already non-dimensionalized, though in our analysis we will 
 \section{Modelling Cardiac Necrosis} 
 \subsection{Necrosis Propagation}
 
-As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversable and adaptive (benificial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a by product of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time, measured in neuronal cycles. 
+As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
 
 \subsection{Investigation Goals and Expected Results}
 
-In order to model the heart and disease models, we will couple cardiac myocytes (with gap junctions) to form a one dimensioanl caricature of cardiac electrical propagation. Gap junctions act by physically linking 2 cells, i.e. the current will be proportional to the electrical potential between the 2 cells. As such, a spike in one cell can cause a spike in another cell. By having the final cell feedback onto the first cell, we can form a very accurate model of a heart.
+In order to model the heart and disease models, we will couple cardiac myocytes (with gap junctions) to form a one dimensional caricature of cardiac electrical propagation. Gap junctions act by physically linking 2 cells, i.e. the current will be proportional to the electrical potential between the 2 cells. As such, a spike in one cell can cause a spike in another cell. By having the final cell feedback onto the first cell, we can form simplistic model of the heart.
 
-We want to ask how the temporal effects and distribution of cardiac death effects the overall frequency of the network. We expect that each diseased cell will act as a delay line, in which if 2 cells have equal states of disease $\alpha$ and $\beta$, this will be equal to a single cell with a disease state $\alpha+\beta$. 
+We want to ask how the temporal effects and distribution of cardiac death affects the overall frequency of the network. We expect that each diseased cell will act as a delay line, in which if 2 cells have equal states of disease $\alpha$ and $\beta$, this will be equal to a single cell with a disease state $\alpha+\beta$. 
 
-Define $D$, the delay caused by pro-necrotic built up, such that $D=f_n - f_t$ where $f_r$ represents the frequency of firing at rest and $f_t$ represents the frequency of firing at time $t$. 
+Define $D$, the delay in the enntire system caused by pro-necrotic built up, such that $D=T_n - T_t$ where $T_r$ represents the period of the network without disease and $T_t$ represents the period of the network at time $t$. 
 
 Consider a system with two, gap junctionally connected, neurons $N_1$ and $N_2$. $D$ is a function such that $D(\nu_1 N_1, \nu_2 N_1)$ defines the system's delay caused by $\nu_1$ at $N_1$ and $\nu_2$ at $N_2$. It is our hypothesis: 
 
 $$ \begin{aligned} \nu_1 &= \alpha \\ \nu_2 &= \beta \\ \nu_3 &= \beta + \alpha \\ \nu_4 &= 1 \\ D(\nu_1 N_1, \nu_2 N_1) &= D(\nu_3 N_1, \nu_4 N_1) \end{aligned} $$ 
 
-To examine and support our hypothesis, we will computationally model the above model using the FN model and gap junctioned neurons. We will construct graphics that demonstrate and illustrate our hypothesis.
+To examine and support our hypothesis, we will computationally model the above model using the FN model and gap junctionaly coupled cardiac myocytes. We will construct graphics that demonstrate and illustrate our hypothesis.
 
 Additionally, we will explore how the system responds in a variety of circumstances:
 
 \begin{enumerate}
 	\item Does distance (Distance between $N_i$ and $N_j= j -i$) influence $D$
 	\item Is $D$ decreased more by a few heavily burdened cells, or by a large number of moderately burdened cells
-	\item At what point does the build up of pro-necrotic proteins become a health issue
+	\item At what point does the build up of pro-necrotic proteins become a health issue (health being defined such that $T_t \geq kT_n; k\in[0,1]$)
 \end{enumerate}
 
 The above will be examined in both a static ($\nu_1$ remains contant with time) and a dynamic ($\nu_i$ is a function of $t$) model of cardiac necrosis. 
@@ -114,7 +115,7 @@ We propose the following format for the final report:
 	\item Cardiac Necrosis Extension
 	\begin{enumerate}
 		\item Description of extension
-		\item Variable Explaination
+		\item Variable Explanation
 		\item Time series with incorporation of $\nu$
 		\item Computational Model Rational
 		\item Static $\nu$
@@ -162,5 +163,8 @@ We propose a checkup in two weeks time to assess our progress and make sure that
 % section references (end)
 
 \end{document}
+
+
+
 
 

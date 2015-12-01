@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Shifman \& Cole}
+\lhead{BIO4134 Final Project Proposal}
+\rfoot{Page \thepage}
+
+\title{Fitzhugh-Nagumo Proposal (Addendum 1)}
+\author{Aaron R. Shifman Christopher B. Cole}
+\date{December $1^{st}$ 2015}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Model Coupling}
+\subsection{Coupled Oscillators}
+Starting with the Fitzhugh Nagumo model equivalent
+\begin{align}
+\frac{dV}{dt} &= V(\alpha +V)(1-V) -W +z\\
+\frac{dW}{dt} &= \beta V - cW
+\end{align}
+We connect connect oscillators with a gap junctional current ($I_g = G_g(\Delta V)$). For a population of $n$ oscillators $\Omega$, with members $\omega_i; i\in \textbf{N}; 1\leq i\leq n$. If $\omega_i$ is connected to $x; x\subset\Omega$, then the gap junctional current to $\omega_i$ is $\sum_{x} G_{x,i}(V_i-V_x)$
+
+In the case of 2 oscillators ($A$ and $B$)
+
+\begin{align}
+\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g(V_A-V_B) + z_A\\
+\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g(V_B-V_A) +z_B\\
+\frac{dW_A}{dt} &= \beta V_A - cW_A\\
+\frac{dW_B}{dt} &= \beta V_B - cW_B
+\end{align}
+
+\subsection{Diseased States}
+For the coupled oscillators representing cardiac myocytes (eq. 3-6), as the cells die through an apoptotic pathway, a fraction of their gap junctions $\nu \in [0,1]$ will be destroyed, through cell decay.
+
+In order to model disease, each myocyte will have a corresponding $\nu$ term, such that
+
+\begin{align}
+\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + (1-\nu_A) G_g(V_A-V_B) + z_A\\
+\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + (1-\nu_B) G_g(V_B-V_A) +z_B
+\end{align}
+With increasing $\nu$, the cell becomes less responsive to its coupled partners
+\subsection{Disease Progression}
+In order to model disease progressing over time, we need to model the progression of $\nu$. Since apoptosis is unidirectional (once started it will not end). We can model $\nu$ as assymptotically stable to one, and unstable at 0.
+
+\begin{align}
+\frac{d\nu}{dt} = \gamma \nu(\nu -1); \gamma \textless 0
+\end{align}
+Which fits the biological model, with controllable rate $\gamma$
+\end{document}

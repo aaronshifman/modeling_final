@@ -26,6 +26,9 @@ xi <- vector()
 yi <- vector()
 ti <- vector()
 
+#second neuron
+xi2 <- vector()
+yi2 <- vector()
 
 # quick plot
 
@@ -39,11 +42,12 @@ ti <- vector()
 shinyServer(function(input, output, session) { 
 
 
-	x_dot <- function(x,y,a,z) return(x*(a+x)*(1-x) - y + z)
+	x_dot <- function(x,y,a,z, x2, g) return(x*(a+x)*(1-x) - y + g*(x - x2) + z)
 	y_dot <- function(x,y,b,c) return(b*x - c*y)
 
 	x <- reactive({
 
+		g <- input$g #need to put this in the ui
 		a <- input$a
 		b <- input$b
 		c <- input$c
@@ -53,17 +57,25 @@ shinyServer(function(input, output, session) {
 		t <- input$time
 
 		xi[1] <- input$x0
-		yi[1] <- input$y0
+		yi[1] <- input$x0
+		xi2[1] <- input$x0+input$offset #just for simplicity
+		yi2[1] <- input$x0-input$offset #just for simplicity
 		ti[1] <- 1
 
 
 		for(ix in 1:(t-1)){
 			ti[ix+1] <- ix
-			xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z))
+			xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z, xi2[ix], g))
 			yi[ix+1] <- yi[ix]+(dt*y_dot(xi[ix], yi[ix], b, c))
+
+			#second neuron
+
+			xi2[ix+1] <- xi2[ix]+(dt*x_dot(xi2[ix], yi2[ix], a, 0, xi[ix], g))
+			yi2[ix+1] <- yi2[ix]+(dt*y_dot(xi2[ix], yi2[ix], b, c))
+
 		}
 
-		r <- as.data.frame(cbind(xi, yi, ti))
+		r <- as.data.frame(cbind(xi, yi, ti, xi2, yi2))
 
 		r
 
@@ -72,12 +84,21 @@ shinyServer(function(input, output, session) {
 	vis <- reactive({
 
 
-			x %>% ggvis(~ti, ~xi) %>% layer_points(size := 10, stroke := "red") %>% layer_points(data = x, x = ~ti, y = ~yi, size := 10, stroke := "blue") %>% add_axis("y", title = "X") %>% scale_numeric("y", domain = c(-2, 2), nice = FALSE, clamp = TRUE) 
+			x %>% ggvis(~ti, ~xi) %>% layer_points(size := 10, stroke := "red") %>% layer_points(data = x, x = ~ti, y = ~yi, size := 10, stroke := "blue") %>% add_axis("y", title = "X") %>% scale_numeric("y", domain = c(-2, 2), nice = FALSE, clamp = TRUE) %>% add_axis("x", title = " ") %>% add_axis("x", orient = "top", ticks = 0, title = "Neuron 1", properties = axis_props(axis = list(stroke = "white"),labels = list(fontSize = 0)))
+
+		})
+
+	vis2 <- reactive({
+
+
+			x %>% ggvis(~ti, ~xi2) %>% layer_points(size := 10, stroke := "red") %>% layer_points(data = x, x = ~ti, y = ~yi2, size := 10, stroke := "blue") %>% add_axis("y", title = "X") %>% scale_numeric("y", domain = c(-2, 2), nice = FALSE, clamp = TRUE) %>% add_axis("x", title = " ") %>% add_axis("x", orient = "top", ticks = 0, title = "Neuron 2", properties = axis_props(axis = list(stroke = "white"),labels = list(fontSize = 0)))
 
 		})
 
 
+
+
 	vis %>% bind_shiny("plot1")
-	vis %>% bind_shiny("plot2")
+	vis2 %>% bind_shiny("plot2")
 
 })

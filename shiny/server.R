@@ -30,6 +30,9 @@ ti <- vector()
 xi2 <- vector()
 yi2 <- vector()
 
+temp <- vector()
+temp[1] <- 0
+
 # quick plot
 
 #plot(1:length(times), x, ylim = c(-1, 1.5), "l", col="blue", main = "Neuron 1", xlab = "Time (seconds)"); lines(y, col="green")
@@ -42,19 +45,27 @@ yi2 <- vector()
 shinyServer(function(input, output, session) { 
 
 
-	x_dot <- function(x,y,a,z, x2, g) return(x*(a+x)*(1-x) - y + g*(x - x2) + z)
+	x_dot <- function(x,y,a,z, x2, g, alpha) return(x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z)
+	x_dot2 <- function(x,y,a,z, x2, g, alpha) return((1 - alpha)*g*(x - x2) + z)
 	y_dot <- function(x,y,b,c) return(b*x - c*y)
 
 	x <- reactive({
 
+		alpha <- input$alpha
 		g <- input$g #need to put this in the ui
 		a <- input$a
 		b <- input$b
 		c <- input$c
 		dt <- input$dt
 
-		z <- input$z
+		
 		t <- input$time
+
+		z <- vector(length = t-1)
+		z[1:50] <- input$z
+		z[51:t] <- 0
+
+
 
 		xi[1] <- input$x0
 		yi[1] <- input$x0
@@ -65,12 +76,14 @@ shinyServer(function(input, output, session) {
 
 		for(ix in 1:(t-1)){
 			ti[ix+1] <- ix
-			xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z, xi2[ix], g))
+			xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z[ix], xi2[ix], g, alpha))
 			yi[ix+1] <- yi[ix]+(dt*y_dot(xi[ix], yi[ix], b, c))
+
+			#temp[ix+1] <- x_dot2(xi[ix], yi[ix], a, z[ix], xi2[ix], g, alpha)
 
 			#second neuron
 
-			xi2[ix+1] <- xi2[ix]+(dt*x_dot(xi2[ix], yi2[ix], a, 0, xi[ix], g))
+			xi2[ix+1] <- xi2[ix]+(dt*x_dot(xi2[ix], yi2[ix], a, 0, xi[ix], g, alpha))
 			yi2[ix+1] <- yi2[ix]+(dt*y_dot(xi2[ix], yi2[ix], b, c))
 
 		}

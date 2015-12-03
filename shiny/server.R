@@ -44,10 +44,10 @@ shinyServer(function(input, output, session) {
 
 	x <- reactive({
 
-		a <- 0.01
-		b <- 0.5
-		c <- 0.01
-		dt <- 0.04
+		a <- input$a
+		b <- input$b
+		c <- input$c
+		dt <- input$dt
 
 		z <- input$z
 		t <- input$time
@@ -72,11 +72,12 @@ shinyServer(function(input, output, session) {
 	vis <- reactive({
 
 
-			x %>% ggvis(~ti, ~xi) %>% layer_points() %>% layer_points(data = x, x = ~ti, y = ~yi)
+			x %>% ggvis(~ti, ~xi) %>% layer_points(size := 10, stroke := "red") %>% layer_points(data = x, x = ~ti, y = ~yi, size := 10, stroke := "blue") %>% add_axis("y", title = "X") %>% scale_numeric("y", domain = c(-2, 2), nice = FALSE, clamp = TRUE) 
 
 		})
 
 
 	vis %>% bind_shiny("plot1")
+	vis %>% bind_shiny("plot2")
 
 })

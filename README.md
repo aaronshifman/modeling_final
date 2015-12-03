@@ -1,3 +1,9 @@
-# modeling_final
+# Extending the Fitzhugh Nagumo Excitable Tissue Model to Model Myocardial Necrosis
 
-just making a pull to save it for later - CC
+#### Aaron R Shifman, Christopher B Cole
+
+Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
+
+Things to do:
+
+- [ ] Meeting Fri at 9 15

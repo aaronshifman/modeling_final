@@ -44,12 +44,30 @@ temp[1] <- 0
 
 shinyServer(function(input, output, session) { 
 
+	############# NEW !!! #############
+
+	#FN <- function(t, state, parameters) {
+
+	#	with(as.list(c(state, parameters)), {
+
+			#rate of change
+	#		dx <- x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z
+	#		dy <- b*x - c*y
+
+			# return the rate of change 
+	#		list(c(dx, dy))
+
+	#	})
+
+	#}
+
+	################################
 
 	x_dot <- function(x,y,a,z, x2, g, alpha) return(x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z)
-	x_dot2 <- function(x,y,a,z, x2, g, alpha) return((1 - alpha)*g*(x - x2) + z)
 	y_dot <- function(x,y,b,c) return(b*x - c*y)
 
 	x <- reactive({
+
 
 		alpha <- input$alpha
 		g <- input$g #need to put this in the ui
@@ -66,12 +84,24 @@ shinyServer(function(input, output, session) {
 		z[51:t] <- 0
 
 
-
 		xi[1] <- input$x0
 		yi[1] <- input$x0
 		xi2[1] <- input$x0+input$offset #just for simplicity
 		yi2[1] <- input$x0-input$offset #just for simplicity
 		ti[1] <- 1
+
+
+		################ NEW !!! #################
+
+		#times <- seq(0, t, by = 0.01)
+		#parameters <- c(a, b, c, alpha, g, z)
+		#state <- c(xi[1], yi[1])
+		#state2 <- c(xi2[1], yi2[1])
+
+		#########################################
+
+
+
 
 
 		for(ix in 1:(t-1)){

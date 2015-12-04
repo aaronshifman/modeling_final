@@ -7,7 +7,7 @@ shinyUI(pageWithSidebar(
   		wellPanel(
   			h4("Paremeters"),
         sliderInput("alpha", "Dampening Factor", 0, 1, 0, step = 0.01),
-  			sliderInput("g", "Conductivity factor", 0, 10, 1, step = 0.01),
+  			sliderInput("g", "Conductivity factor", 0, 10, 0.5, step = 0.01),
   			sliderInput("z", "Z value for the current simulation", 0, 5, 0.05, step = 0.1),
   			numericInput("time", "Max number of time steps to display", value = 1000, min = 1, max = 10000, step = 1),
   			numericInput("x0", "Initial X Y value for both neurons", value = 0, min = 0, max = 1, step = 0.01),

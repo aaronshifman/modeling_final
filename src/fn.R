@@ -13,12 +13,13 @@ x <- unlist(list(rep(0, 100)))
 y <- unlist(list(rep(0, 100)))
 x_0 <- 0
 y_0 <- 0
+t[ix] <- 1
 
 x_dot <- function(x,y,a,z) return(x*(a+x)*(1-x) - y + z)
 y_dot <- function(x,y,b,c) return(b*x - c*y)
 
 for(ix in 1:(length(times)-1)){
-	t <- ix
+	t[ix+1] <- ix
 	x[ix+1] <- x[ix]+(dt*x_dot(x[ix], y[ix], a, z))
 	y[ix+1] <- y[ix]+(dt*y_dot(x[ix], y[ix], b, c))
 }

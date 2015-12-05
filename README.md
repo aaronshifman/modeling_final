@@ -6,4 +6,7 @@ Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
 
 Things to do:
 
-- [ ] Meeting Fri at 9 15
+- [x] Meeting Fri at 9 15
+- [ ] Dynamic *v*
+- [ ] Improve stability analysis
+- [ ] Update shiny for dynamic *v*

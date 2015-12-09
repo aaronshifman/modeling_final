@@ -1,8 +1,8 @@
 name: fn_ex
 account: ccole
 server: shinyapps.io
-bundleId: 324006
+bundleId: 324573
 url: https://ccole.shinyapps.io/fn_ex
-when: 1449159612.04649
+when: 1449237217.27283
 asMultiple: FALSE
 asStatic: FALSE

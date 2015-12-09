@@ -1,5 +1,6 @@
 library(ggvis)
 library(dplyr)
+library(deSolve)
 ### def var
 
 #a <- 0.01
@@ -44,23 +45,6 @@ temp[1] <- 0
 
 shinyServer(function(input, output, session) { 
 
-	############# NEW !!! #############
-
-	#FN <- function(t, state, parameters) {
-
-	#	with(as.list(c(state, parameters)), {
-
-			#rate of change
-	#		dx <- x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z
-	#		dy <- b*x - c*y
-
-			# return the rate of change 
-	#		list(c(dx, dy))
-
-	#	})
-
-	#}
-
 	################################
 
 	x_dot <- function(x,y,a,z, x2, g, alpha) return(x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z)
@@ -79,9 +63,7 @@ shinyServer(function(input, output, session) {
 		
 		t <- input$time
 
-		z <- vector(length = t-1)
-		z[1:50] <- input$z
-		z[51:t] <- 0
+		z <- input$z
 
 
 		xi[1] <- input$x0
@@ -91,34 +73,49 @@ shinyServer(function(input, output, session) {
 		ti[1] <- 1
 
 
+############### !NEW! ############## !NEW! ################### NEW ####
+		FN <- function(time, y, parms) {
+
+			with(as.list(c(y, parms)), {
+
+				#rate of change
+				dx <- x*(a+x)*(1-x) - y + (1 - alpha)*g*(x - x2) + z
+				dy <- b*x - c*y
+				dx2 <- x2*(a+x2)*(1-x2) - y2 + (1 - alpha)*g*(x2 - x) + z
+				dy2 <- b*x2 - c*y2
+				dr <- 0.01
+
+
+				# return the rate of change 
+				list(c(dx, dy, dx2, dy2))
+
+			})
+
+		}
+
 		################ NEW !!! #################
 
-		#times <- seq(0, t, by = 0.01)
-		#parameters <- c(a, b, c, alpha, g, z)
-		#state <- c(xi[1], yi[1])
-		#state2 <- c(xi2[1], yi2[1])
+		time <- seq(0, t, by = 0.01)
+		parms <- c(a=a, b=b, c=c, alpha=alpha, g=g, z=z) # NEED TO ADJUST THIS Z
+		y <- c(x = xi[1], y = yi[1], x2 = xi2[1], y2 = yi2[1])
 
 		#########################################
-
-
-
-
-
-		for(ix in 1:(t-1)){
-			ti[ix+1] <- ix
-			xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z[ix], xi2[ix], g, alpha))
-			yi[ix+1] <- yi[ix]+(dt*y_dot(xi[ix], yi[ix], b, c))
+		#for(ix in 1:(t-1)){
+		#	ti[ix+1] <- ix
+		#	xi[ix+1] <- xi[ix]+(dt*x_dot(xi[ix], yi[ix], a, z[ix], xi2[ix], g, alpha))
+		#	yi[ix+1] <- yi[ix]+(dt*y_dot(xi[ix], yi[ix], b, c))
 
 			#temp[ix+1] <- x_dot2(xi[ix], yi[ix], a, z[ix], xi2[ix], g, alpha)
 
 			#second neuron
 
-			xi2[ix+1] <- xi2[ix]+(dt*x_dot(xi2[ix], yi2[ix], a, 0, xi[ix], g, alpha))
-			yi2[ix+1] <- yi2[ix]+(dt*y_dot(xi2[ix], yi2[ix], b, c))
+		#	xi2[ix+1] <- xi2[ix]+(dt*x_dot(xi2[ix], yi2[ix], a, 0, xi[ix], g, alpha))
+		#	yi2[ix+1] <- yi2[ix]+(dt*y_dot(xi2[ix], yi2[ix], b, c))
 
-		}
+		#}
 
-		r <- as.data.frame(cbind(xi, yi, ti, xi2, yi2))
+		r <- as.data.frame(ode(y, time, FN, parms))
+		colnames(r) <- c("ti", "xi", "yi", "xi2", "yi2")
 
 		r
 

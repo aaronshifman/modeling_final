@@ -1,4 +1,5 @@
 library(ggvis)
+library(deSolve)
 
 shinyUI(pageWithSidebar(
   headerPanel("FitzHugh–Nagumo Coupled Oscillators"),

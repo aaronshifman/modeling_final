@@ -1,7 +1,7 @@
 library(ggvis)
 library(dplyr)
 library(deSolve)
-### def var
+### def vars
 
 #a <- 0.01
 #b <- 0.5
@@ -83,7 +83,7 @@ shinyServer(function(input, output, session) {
 				dy <- b*x - c*y
 				dx2 <- x2*(a+x2)*(1-x2) - y2 + (1 - alpha)*g*(x2 - x) + z
 				dy2 <- b*x2 - c*y2
-				dr <- 0.01
+				#dr <- 0.01
 
 
 				# return the rate of change 

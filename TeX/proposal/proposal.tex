@@ -1,19 +1,36 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{report}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{Shifman \& Cole}
-\lhead{BIO4134 Final Project Proposal}
-\rfoot{Page \thepage}
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Myocardial Necrosis $\bullet$ BIO4134 $\bullet$ Shifman \& Cole} % Custom header text
+\fancyfoot[RO,LE]{Page \thepage} % Custom footer text
 
-\graphicspath{ {/Users/yvesmarcel/Documents/sFDR_paper/assets/images/} }
+\graphicspath{ {/Users/Chris/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
+
+
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Extending the Fitzhugh Nagumo Excitable Tissue
+Model to Myocardial Necrosis}} % Article title
+
+\author{
+\large
+\textsc{Aaron R. Shifman, Christopher B. Cole}\thanks{BIO4134 Final Project}\\[2mm] % Your name
+\normalsize University of Ottawa \\ % Your institution
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
 \begin{document}
-\title{Extending the Fitzhugh Nagumo Excitable Tissue Model to Model Myocardial Necrosis}
-\author{Aaron R. Shifman, Christopher B. Cole}
-\maketitle
-\tableofcontents
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
 %\tableoffigures
 
 \begin{abstract}
@@ -21,7 +38,14 @@
 Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model, and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in cardiac necrosis and examine the effect of necrosis on a one dimensional cardiac model. 
 \end{abstract}
 
-\section{Examination of the Fitzhugh Nagumo Model}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\chapter{Examination of the Fitzhugh Nagumo Model}
 
 The modelling of neurons and associated action potentials started in the early 1900s with the ``integrate and fire'' model.$^1$ In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^2$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van-der-Pol oscillator.$^3$ This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
 
@@ -38,11 +62,8 @@ p_{open_{l}} &\equiv 1\\
 
 This is impossible to solve analytically, and quite difficult to explore numerically due to the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
-% <- maybe talk about calcium plateaeu 
-%is there anything here to cite? i feel like we should cite stuff
-% - meh I don’t think we do
 
-\subsection{Model Rationale and Variables}
+\section{Model Rationale and Variables}
 
 The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van-der-Pol model, however it is topologically equivalent and much easier to analyse.
 
@@ -52,55 +73,92 @@ The system presents in the following, non-dimensionalized form. This is not the 
 In this model, $V$ - in general - represents activation, and in an excitable tissue context represents voltage. and $W$ - in general represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive \( W.R.T. cell \) currents. There are three parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the three parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC offset from experimentally injected current of the neuron under study. In our extension to this model, we will replace $z$ with a gap junctional current from coupled cells (more in section 2). The additional parameters $\alpha$, $\beta$, and $c$ represent `rate - like' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
 
 
-\subsection{Purpose of Model and Examination}
+\section{Purpose of Model and Examination}
 
-This model, a simplification of the original Hodgkin Huxley model, intends to model spiking neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of of parameters can also model various neuronal behaviors such as bursting and chattering. These models can be put together to form multi dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
-In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. %cite the chattering probably
+This model, a simplification of the original Hodgkin Huxley model, intends to model spiking neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form multi-dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
+In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. 
 
-Additionally, we will examine and interpret the 
+\includegraphics[scale=0.75]{model}
 
-\begin{enumerate}
-	\item Phase Plane
-	\item Bifurcation Diagram
-	\item Time Series
-\end{enumerate}
 
-The model itself is already non-dimensionalized, though in our analysis we will provide a full description of the author's rationale. Additionally, we will fully classify the model according to the Haefner et. al criteria and justify our classification.
+\section{Model Classification} % (fold)
+\label{sub:model_classification}
+
+% subsection model_classification (end)
+
+\section{Dimensionalization} % (fold)
+\label{sub:dimensionalization}
+
+% subsection dimensionalization (end)
+\section{Stability Analysis} % (fold)
+\label{sub:stability_analysis}
+
+Taking our model such that:
+
+$$\begin{aligned}
+f(x) &= \dot{V} = V(\alpha + V)(1-V) -W +z \\
+g(x) &= \dot{W} = \beta V -cW
+\end{aligned}
+$$
+
+We compute the Jacobian Matrix $\vec{J}$:
+
+
+$$
+\vec{J} = \begin{bmatrix}
+    \frac{\partial f}{\partial{V}} & \frac{\partial f}{\partial{W}} \\
+    \frac{\partial g}{\partial{V}} & \frac{\partial g}{\partial{W}} \\
+\end{bmatrix} = 
+\begin{bmatrix}
+    −2\alpha V+\alpha+(2 - 3V)V & -1 \\
+    \beta & -c \\
+\end{bmatrix}
+$$
+
+
+If we take $\alpha,\beta,c$ equal to 0.01,0.5,0.1, we get $\Rightarrow $
+$$
+\begin{bmatrix}
+    −0.02V+(2−3V)V+0.01 & -1 \\
+    0.5 & -0.1 \\    
+\end{bmatrix}
+$$
+
+This implies that eigenvalues $\lambda_{1,2}$ may be complex or not. 
+
+Eigenvalues 1 and 2 as follows
+
+$$ \lambda_{1,2} \approx 0.5(-3V^2 - 1.98V \pm \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) $$
+
+with corresponding eigenvectors
+
+$$ v_{1,2} \approx \begin{bmatrix} 0.11 + 1.98V - 3V^2 + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \\ 0.11 + 1.98V - 3V^2 - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \end{bmatrix} $$
+
+\includegraphics{eig}
+\includegraphics{phase-plane}
+\includegraphics{lbifur}
+\includegraphics{hbifur}
+% subsection stability_analysis (end)
+
+
+
+
+\section{Coupled Oscillators} % (fold)
+\label{sub:coupled_oscillators}
+
+\includegraphics{2couple}
+\includegraphics{ncouple}
+
+
+
+% subsection coupled_oscillators (end)
 
 %end original model, begin extension
 
-\section{Modelling Myocardial Necrosis} 
-\subsection{Necrosis Propagation}
+\chapter{Modelling Myocardial Necrosis} 
 
-As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
 
-\subsection{Investigation Goals and Expected Results}
-
-In order to model the heart and disease models, we will couple cardiac myocytes (with gap junctions) to form a one dimensional caricature of cardiac electrical propagation. Gap junctions act by physically linking 2 cells, i.e. the current will be proportional to the electrical potential between the 2 cells. As such, a spike in one cell can cause a spike in another cell. By having the final cell feedback onto the first cell, we can form simplistic model of the heart.
-
-We want to ask how the temporal effects and distribution of cardiac death affects the overall frequency of the network. We expect that each diseased cell will act as a delay line, in which if 2 cells have equal states of disease $\alpha$ and $\beta$, this will be equal to a single cell with a disease state $\alpha+\beta$. 
-
-Define $D$, the delay in the enntire system caused by pro-necrotic built up, such that $D=T_n - T_t$ where $T_r$ represents the period of the network without disease and $T_t$ represents the period of the network at time $t$. 
-
-Consider a system with two, gap junctionally connected, neurons $N_1$ and $N_2$. $D$ is a function such that $D(N_1(\nu_1), N_2(\nu_2))$ defines the system's delay caused by $\nu_1$ at $N_1$ and $\nu_2$ at $N_2$. It is our hypothesis: 
-
-\begin{align} 
-\nu_1 &= \alpha \\ \nu_2 &= \beta \\ \nu_3 &= \beta + \alpha \\ \nu_4 &= 1 \\ D(N_1(\nu_1), N_2(\nu_2)) &= D(N_1(\nu_3), N_2(\nu_4)) 
-\end{align} 
-
-To examine and support our hypothesis, we will computationally model the above model using the FN model and gap junctionaly coupled cardiac myocytes. We will construct graphics that demonstrate and illustrate our hypothesis.
-
-Additionally, we will explore how the system responds in a variety of circumstances:
-
-\begin{enumerate}
-	\item Does distance (Distance between $N_i$ and $N_j= j -i$) influence $D$
-	\item Is $D$ decreased more by a few heavily burdened cells, or by a large number of moderately burdened cells
-	\item At what point does the build up of pro-necrotic proteins become a health issue (health being defined such that $T_t \geq kT_n; k\in[0,1]$)
-\end{enumerate}
-
-The above will be examined in both a static ($\nu_1$ remains contant with time) and a dynamic ($\nu_i$ is a function of $t$) model of cardiac necrosis. 
-
-\subsection{Translational Perspective} %how the model relates to disease
+\section{Translational Perspective} %how the model relates to disease
 
 The heart serves a vital role in many organisms. The timely and regular delivery of oxygenated blood is essential to survival, and thus any decrease from optimum efficiency is of consequence. Investigations into potential mechanistic explainations and modeling of this degradation are highly interesting in the context of both accute and chronic cardiac disease.
 
@@ -112,64 +170,71 @@ Throughout the investigation, we refer to a cell's necrosis burden as analagous 
 
 Our proposed extension to the FN model plans to shed light on the geneisis, progression, and finally the consequences of myocardial necrosis. 
 
-\section{Discussion of Report} % (fold)
-\label{sec:discussion_of_report}
+\section{Necrosis Propagation}
 
-\subsection{Proposed Format} % (fold)
-\label{sub:proposed_format}
+As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
 
-We propose the following format for the final report:
+Starting with the Fitzhugh Nagumo model equivalent
+\begin{align}
+\frac{dV}{dt} &= V(\alpha +V)(1-V) -W +z\\
+\frac{dW}{dt} &= \beta V - cW
+\end{align}
+We connect connect oscillators with a gap junctional current ($I_g = G_g(\Delta V)$). For a population of $n$ oscillators $\Omega$, with members $\omega_i; i\in \textbf{N}; 1\leq i\leq n$. If $\omega_i$ is connected to $x; x\subset\Omega$, then the gap junctional current to $\omega_i$ is $\sum_{x} G_{x,i}(V_i-V_x)$
+
+In the case of 2 oscillators ($A$ and $B$)
+
+\begin{align}
+\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g(V_A-V_B) + z_A\\
+\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g(V_B-V_A) +z_B\\
+\frac{dW_A}{dt} &= \beta V_A - cW_A\\
+\frac{dW_B}{dt} &= \beta V_B - cW_B
+\end{align}
+
+\section{Diseased States}
+For the coupled oscillators representing cardiac myocytes (eq. 3-6), as the cells die through an apoptotic pathway, a fraction of their gap junctions $\nu \in [0,1]$ will be destroyed, through cell decay.
+
+In order to model disease, each myocyte will have a corresponding $\nu$ term, such that
+
+\begin{align}
+\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + (1-\nu_A) G_g(V_A-V_B) + z_A\\
+\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + (1-\nu_B) G_g(V_B-V_A) +z_B
+\end{align}
+With increasing $\nu$, the cell becomes less responsive to its coupled partners
+
+\section{Static Disease Burden} % (fold)
+\label{sub:static_disease_burden}
 
 \begin{enumerate}
-	\item Introduction
-	\item Primary Model Analysis
-	\begin{enumerate}
-		\item Variable Description
-		\item Model Classification
-		\item Time series 
-		\item Phase Plane
-		\item Orbit / Bifurcation Diagrams
-	\end{enumerate}
-	\item Cardiac Necrosis Extension
-	\begin{enumerate}
-		\item Description of extension
-		\item Variable Explanation
-		\item Time series with incorporation of $\nu$
-		\item Computational Model Rational
-		\item Static $\nu$
-		\begin{enumerate}
-			\item Distance
-			\item Differential burden of System 
-			\item Interpretation
-		\end{enumerate}
-		\item Dynamic $\nu$
-		\begin{enumerate}
-			\item Distance
-			\item Differential burden of System 
-			\item Interpretation
-		\end{enumerate}
-	\end{enumerate}
-	\item Discussion
-	\item Conclusions and Further Work
-	\item References
-	\item Appendix I: Code 
+	\item Does distance (Distance between $N_i$ and $N_j= j -i$) influence $D$
+	\item Is $D$ decreased more by a few heavily burdened cells, or by a large number of moderately burdened cells
+	\item At what point does the build up of pro-necrotic proteins become a health issue (health being defined such that $T_t \geq kT_n; k\in[0,1]$)
 \end{enumerate}
 
+\section{Dynamic Disease Burden} % (fold)
+\label{sub:dynamic_disease_burden}
 
-\subsection{Timeline} % (fold)
-\label{sub:timeline}
+In order to extend this model to model cardiac necrosis, we use the previously described coupling and add $\nu_i$ as an ordinary differential equation describing the dampening on neuron $i$ ($N_i$). In the present simplication, $\nu_i$ will depend only on time. Define $\nu_{0i}$ as the *a priori* necrotic burden of $N_i$. 
 
-We propose a checkup in approximately one week to assess our progress and make sure that the project presented is reasonable in scope for the course. If possible, we would like to present a draft to ensure that we are on the right path. 
+We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state. Additionally, we require that any concentration of $\nu_{0i}$ will eventually lead to cell death. We chose the model
 
-% subsection timeline (end)
+$$ \frac{d \nu_i}{dt} = \dot{\nu} = \nu_i (1 - \nu_i) $$
 
-% subsection proposed_format (end)
+\includegraphics{dynamic}
+\includegraphics{2dyn}
+\includegraphics{ndyn}
+% subsection dynamic_disease_burden (end)
 
-% section discussion_of_report (end)
 
+% subsection static_disease_burden (end)
+\section{Web App} % (fold)
+\label{sub:web_app}
+
+
+\includegraphics[scale = 0.4]{R}
+% subsection web_app (end)
 \newpage
 
-\section{References} % (fold)
+\chapter{References} % (fold)
 \label{sec:references}
 
 \begin{enumerate}

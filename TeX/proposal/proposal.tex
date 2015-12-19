@@ -1,6 +1,17 @@
 \documentclass[11pt]{report}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage[labelfont=bf]{caption}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage{fancyhdr} % Headers and footers
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
@@ -8,7 +19,21 @@
 \fancyhead[C]{Myocardial Necrosis $\bullet$ BIO4134 $\bullet$ Shifman \& Cole} % Custom header text
 \fancyfoot[RO,LE]{Page \thepage} % Custom footer text
 
-\graphicspath{ {/Users/Chris/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
+\graphicspath{ {/Users/yvesmarcel/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
+
+
+% create a new env for the dedication box - just for you Aaron
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top 
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
 
 
 
@@ -33,6 +58,10 @@ Model to Myocardial Necrosis}} % Article title
 
 %\tableoffigures
 
+\begin{dedication}
+``In general, throughout the work, what is new is not good; and what is good is not new'' - \textbf{Reverend Martin Sherlock}, 1781 
+\end{dedication}
+
 \begin{abstract}
 
 Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model, and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in cardiac necrosis and examine the effect of necrosis on a one dimensional cardiac model. 
@@ -42,6 +71,10 @@ Neuroscience frequently relies on robust mathematical models to simulate and inv
 \newpage
 
 \tableofcontents
+
+\newpage
+
+\listoffigures
 
 \newpage
 
@@ -60,34 +93,50 @@ p_{open_{l}} &\equiv 1\\
 \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h}\\
 \end{align}
 
-This is impossible to solve analytically, and quite difficult to explore numerically due to the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
+This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
 
 \section{Model Rationale and Variables}
 
-The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van-der-Pol model, however it is topologically equivalent and much easier to analyse.
+The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van-der-Pol model, however it is topologically equivalent and much easier to analyse. All models which follow are non-dimensionalized. 
 
-\begin{align} \frac{dV}{dt} &= V(\alpha+V)(1-V) -W + z \\
-\frac{dW}{dt} &= \beta V-cW \end{align}
+$$ \begin{aligned} \frac{dV}{dt} &= V(\alpha+V)(1-V) -W + z \\
+\frac{dW}{dt} &= \beta V-cW \end{aligned} $$
 
-In this model, $V$ - in general - represents activation, and in an excitable tissue context represents voltage. and $W$ - in general represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive \( W.R.T. cell \) currents. There are three parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the three parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC offset from experimentally injected current of the neuron under study. In our extension to this model, we will replace $z$ with a gap junctional current from coupled cells (more in section 2). The additional parameters $\alpha$, $\beta$, and $c$ represent `rate - like' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
+In this model $V$ - in general - represents activation, and in an excitable tissue context represents voltage. and $W$ - in general represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive (with regard to the cell) currents. There are four parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the four parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the direct current (DC) offset from experimentally injected current of the neuron under study. In our extension to this model, we will replace $z$ with a gap junctional current from coupled cells (see section \ref{sub:coupled_oscillators}). The additional parameters $\alpha$, $\beta$, and $c$ represent ``rate - like'' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
 
 
 \section{Purpose of Model and Examination}
 
-This model, a simplification of the original Hodgkin Huxley model, intends to model spiking neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form multi-dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
+This model, a simplification of the original Hodgkin Huxley model, intends to model spiking cardiac neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form multi-dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
 In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. 
 
-\includegraphics[scale=0.75]{model}
+
+\begin{figure}[!ht]
+  \caption{Time series of $V$ and $W$ following the Fitzhugh Nagumo model. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5$}
+  \centering
+    \includegraphics[width=0.75\textwidth]{model}
+\end{figure}
+
+Initially, we present a naive time series of the model. We notice that with the set of parameters presented in Eugene Izhikevich 2006, the system oscillates in a stable limit cycle. These parameters, utilized throughout the rest of this report unless otherwise noted, are as follows:
+
+$$ \begin{aligned} \alpha &= 0.01 \\ \beta &= 0.5 \\ c &= 0.1 \\ z &= 0.5 \end{aligned} $$
+
+Using the above parameters, we plot the system on the interval $0 < t \leq 200$ with arbitrary units for time. Note that the system is solved through an adaptive solver \textbf{odeint} in Python 2. 
 
 
 \section{Model Classification} % (fold)
 \label{sub:model_classification}
 
-% subsection model_classification (end)
+We classify the system according to the criterion established by Haefner et. al $^{3}$ and find the model is:
 
-\section{Dimensionalization} % (fold)
-\label{sub:dimensionalization}
+\begin{enumerate}
+	\item \textbf{Mechanistic} rather than phenomenological. FN models neural dyanmics as a function of individual processes acting on the neuron, including terms analagous to the DC offset, excitation, and relaxation. In this way, the model details the process of neural excitation and is process oriented.
+	\item \textbf{Dynamic} rather than static. The system models excitation and relaxation as a function of time, and is thus a dynamic model.
+	\item \textbf{Continuous} rather than discrete. The model uses time on an arbitrary scale as a continuous variable, instead of taking predefined ``steps''. In this way, the system uses time continuously. 
+	\item \textbf{Spatially homogenous} rather than spatially heterogeneous. The model contains no explicit description of space, and is thus homogeneous. 
+	\item \textbf{Deterministic} rather than stochastic. All terms in the model are entirely predictable given initial conditions and no events based on chance occur. Thus the model is deterministic. 
+\end{enumerate}
 
 % subsection dimensionalization (end)
 \section{Stability Analysis} % (fold)
@@ -116,7 +165,7 @@ $$
 $$
 
 
-If we take $\alpha,\beta,c$ equal to 0.01,0.5,0.1, we get $\Rightarrow $
+Taking $\alpha,\beta,c$ equal to 0.01,0.5,0.1 respectively,
 $$
 \begin{bmatrix}
     −0.02V+(2−3V)V+0.01 & -1 \\
@@ -128,23 +177,61 @@ This implies that eigenvalues $\lambda_{1,2}$ may be complex or not.
 
 Eigenvalues 1 and 2 as follows
 
-$$ \lambda_{1,2} \approx 0.5(-3V^2 - 1.98V \pm \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) $$
+$$ \lambda_{1,2} \approx \begin{bmatrix} 0.5(-3V^2 - 1.98V + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \\ 0.5(-3V^2 - 1.98V - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \end{bmatrix} $$
 
 with corresponding eigenvectors
 
 $$ v_{1,2} \approx \begin{bmatrix} 0.11 + 1.98V - 3V^2 + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \\ 0.11 + 1.98V - 3V^2 - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \end{bmatrix} $$
 
-\includegraphics{eig}
-\includegraphics{phase-plane}
-\includegraphics{lbifur}
-\includegraphics{hbifur}
-% subsection stability_analysis (end)
+We plot the eigevalues to describe their dynamics. 
+
+\begin{figure}[!ht]
+  \caption{Eigenvalues as a function of the steady state $V^*$ for $z$.  $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{eig}
+\end{figure}
+
+Note that the vertical axis of the above plot corresponds to the value of the eigenvalue, while the lower horizontal axis denotes the value of the steady state $V^*$ for $z \in [0,5]$ while the upper horizontal axis corresponds to the $z$ value itself.
+
+There is an observable bifurcation when the real component of the eigenvalue passes from negative to positive just above $V^*(z) = 0$, and when the real component of $\lambda$ passes from positive to negative, at just below $V^*(z) = 0.6$. To confirm these values we plot a low resolution bifurcation:
+
+
+\begin{figure}[!ht]
+  \caption{Low resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{lbifur}
+\end{figure}
+
+
+and subsequently confirm this with a tigher view of the left bifurcation point.
+
+\begin{figure}[!ht]
+  \caption{High resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{hbifur}
+\end{figure}
+
+
+This appears to be an example of a Hopf bifurcation point at both of these instances. There is initially a fixed point which is stable, corresponding to no oscillation as well as a pair of complex conjugate eigenvalues. As $z$ increases and reaches the first bifurcation, the fixed point loses stability and the stable limit cycle forms. That is, until $z$ reaches the seconf bifurcation point and the limit cycle collapses back to the single stable fixed point as the real component of the eigenvalue once again becomes negative. We can visualize this stable limit cycle by plotting the phase plane of the system with a stable value of $z = 0.5$.
+
+\begin{figure}[!ht]
+  \caption{Phase plane of the FN system. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{phase-plane}
+\end{figure}
+
+This clearly displays the system oscilating for the appropriate value of $z$. In the following section, we take advantage of this property and modify the $z$ term to incorporate both coupled oscilators and the disease etiology of myocardial necrosis. 
 
 
 
 
 \section{Coupled Oscillators} % (fold)
 \label{sub:coupled_oscillators}
+
+The previously described model is useful for observing the dynamics of a single cardiac neuron, however occasionally researchers wish to incorporate several connected neuros in the same system. 
+
+Here we couple neurons, first two, then $n$, in a modified *synfire* chain. In this network, current is expressed through gap junctions and can only travel in one direction. 
+
 
 \includegraphics{2couple}
 \includegraphics{ncouple}

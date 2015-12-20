@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  20 DEC 2015 17:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  20 DEC 2015 17:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -618,10 +618,10 @@ File: /Users/Chris/repos/modeling_final/TeX/images/statA.png Graphic file (type
  png)
  <use /Users/Chris/repos/modeling_final/TeX/images/statA.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statA.png
- used on input line 366.
+ used on input line 367.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 367--367
+Underfull \hbox (badness 1303) in paragraph at lines 368--368
 []\OT1/cmr/bx/n/10 (a) |\OT1/cmr/m/n/10 Dis-persed necrotic bur-den in a
  []
 
@@ -632,7 +632,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/statB.png Graphic file (type
  png)
  <use /Users/Chris/repos/modeling_final/TeX/images/statB.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statB.png
- used on input line 373.
+ used on input line 374.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
  [17 </Users/Chris/repos/modeling_final/TeX/images/nstat.png>]
 </Users/Chris/repos/modeling_final/TeX/images/statA2.png, id=322, 385.44pt x 26
@@ -641,7 +641,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/statA2.png Graphic file (typ
 e png)
  <use /Users/Chris/repos/modeling_final/TeX/images/statA2.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statA2.pn
-g used on input line 394.
+g used on input line 395.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
 </Users/Chris/repos/modeling_final/TeX/images/statB2.png, id=323, 385.44pt x 26
@@ -650,7 +650,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/statB2.png Graphic file (typ
 e png)
  <use /Users/Chris/repos/modeling_final/TeX/images/statB2.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statB2.pn
-g used on input line 401.
+g used on input line 402.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
 [18 </Users/Chris/repos/modeling_final/TeX/images/statA.png> </Users/Chris/repo
@@ -661,7 +661,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/dynamic.png Graphic file (ty
 pe png)
  <use /Users/Chris/repos/modeling_final/TeX/images/dynamic.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynamic.p
-ng used on input line 438.
+ng used on input line 439.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
 </Users/Chris/repos/modeling_final/TeX/images/2dyn.png, id=332, 433.62pt x 289.
@@ -670,7 +670,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png Graphic file (type
 png)
  <use /Users/Chris/repos/modeling_final/TeX/images/2dyn.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png 
-used on input line 449.
+used on input line 450.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
 </Users/Chris/repos/modeling_final/TeX/images/ndyn.png, id=333, 433.62pt x 289.
@@ -679,7 +679,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/ndyn.png Graphic file (type
 png)
  <use /Users/Chris/repos/modeling_final/TeX/images/ndyn.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/ndyn.png 
-used on input line 458.
+used on input line 459.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
  [19 </Users/Chris/repos/modeling_final/TeX/images/statA2.png> </Users/Chris/re
 pos/modeling_final/TeX/images/statB2.png>]
@@ -689,15 +689,15 @@ File: /Users/Chris/repos/modeling_final/TeX/images/dynA.png Graphic file (type
 png)
  <use /Users/Chris/repos/modeling_final/TeX/images/dynA.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynA.png 
-used on input line 469.
+used on input line 470.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 470--470
+Underfull \hbox (badness 1303) in paragraph at lines 471--471
 []\OT1/cmr/bx/n/10 (a) |\OT1/cmr/m/n/10 Dis-persed necrotic bur-den in a
  []
 
 
-Underfull \hbox (badness 4353) in paragraph at lines 470--470
+Underfull \hbox (badness 4353) in paragraph at lines 471--471
 \OT1/cmr/m/n/10 dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n/1
 0 =
  []
@@ -709,10 +709,10 @@ File: /Users/Chris/repos/modeling_final/TeX/images/dynB.png Graphic file (type
 png)
  <use /Users/Chris/repos/modeling_final/TeX/images/dynB.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynB.png 
-used on input line 476.
+used on input line 477.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 4353) in paragraph at lines 477--477
+Underfull \hbox (badness 4353) in paragraph at lines 478--478
 \OT1/cmr/m/n/10 dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n/1
 0 =
  []
@@ -725,7 +725,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png Graphic file (type
  png)
  <use /Users/Chris/repos/modeling_final/TeX/images/dynA2.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png
- used on input line 496.
+ used on input line 497.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
 </Users/Chris/repos/modeling_final/TeX/images/dynB2.png, id=349, 385.44pt x 266
@@ -734,15 +734,15 @@ File: /Users/Chris/repos/modeling_final/TeX/images/dynB2.png Graphic file (type
  png)
  <use /Users/Chris/repos/modeling_final/TeX/images/dynB2.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynB2.png
- used on input line 503.
+ used on input line 504.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 4846) in paragraph at lines 504--504
+Underfull \hbox (badness 4846) in paragraph at lines 505--505
 []\OT1/cmr/bx/n/10 (b) |\OT1/cmr/m/n/10 Se-quen-tial necrotic bur-den in
  []
 
 
-Underfull \hbox (badness 2452) in paragraph at lines 504--504
+Underfull \hbox (badness 2452) in paragraph at lines 505--505
 \OT1/cmr/m/n/10 a dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n
 /10 =
  []
@@ -759,7 +759,7 @@ File: /Users/Chris/repos/modeling_final/TeX/images/R.png Graphic file (type png
 )
  <use /Users/Chris/repos/modeling_final/TeX/images/R.png>
 Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/R.png use
-d on input line 559.
+d on input line 560.
 (pdftex.def)             Requested size: 270.0pt x 239.38576pt.
  [24
 
@@ -767,12 +767,12 @@ d on input line 559.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
-Overfull \hbox (47.34424pt too wide) in paragraph at lines 572--573
+Overfull \hbox (47.34424pt too wide) in paragraph at lines 573--574
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
 [25 </Users/Chris/repos/modeling_final/TeX/images/R.png>]
-Overfull \hbox (402.12793pt too wide) in paragraph at lines 602--604
+Overfull \hbox (402.12793pt too wide) in paragraph at lines 603--605
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
@@ -787,14 +787,14 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 626.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 627.
 [27
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 626.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 627.
  (./proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 626.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 626.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 627.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 627.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: E1EA3A7941CF3792B4F042D69F3779EF;1762.
 
@@ -805,7 +805,7 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 626.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 627.
  ) 
 Here is how much of TeX's memory you used:
  8926 strings out of 493089
@@ -832,7 +832,7 @@ texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on proposal.pdf (30 pages, 976682 bytes).
+Output written on proposal.pdf (30 pages, 976655 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  382 compressed objects within 4 object streams

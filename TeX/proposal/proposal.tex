@@ -70,7 +70,7 @@ Model to Myocardial Necrosis}} % Article title
 
 \begin{abstract}
 
-Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model, and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in cardiac necrosis and examine the effect of necrosis on a one dimensional cardiac model. 
+Neuroscience frequently relies on robust mathematical models to simulate and investigate trends in neuromechanics and signal propagation. We propose an examination of the Fitzhugh-Nagumo model, and additionally propose a modified extension of this model to account for necrosis of cardiac cells. We use this model to investigate case studies in myocardiac necrosis and examine the effect of necrosis on a one dimensional cardiac model. 
 \end{abstract}
 
 
@@ -260,6 +260,21 @@ We further extend the model to couple $n$ neurons.
 
 Note that the above has used paramters such that the stable limit cycle is sustained. We can use this extension to the FN model in order to answer biologically relevant questions about myocardial necrosis in the following section. 
 % subsection coupled_oscillators (end)
+
+
+Additionally, we describe the frequency change as a function of the number of neurons in the system. As frequency is defined by $\frac{1}{period}$, with increasing number of neurons, frequency decreases. At the extreme, as $n \rightarrow \infty, f \overset{a.s.}{\rightarrow} 0$.
+
+
+
+\begin{figure}[!ht]
+  \caption{System frequency as a function of neuron count. $\alpha = 0.01, \beta = 0.5,c = 0.1,z=0.5$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{freq_static}
+\end{figure}
+
+Note that the coupled system behaves as expected. 
+
+
 
 %end original model, begin extension
 
@@ -505,6 +520,17 @@ By using our model, we demonstrate that the distribution of initial necrosis doe
 
 Intuitively this tells us that a more dispersed illness which is evolving will have a more devastating effect than a locally contained one. 
 
+\section{Conclusion} % (fold)
+\label{sec:conclusion}
+
+
+In summary, we present an examination of the Fitzhugh Nagumo model for relaxation oscillators, a simplication of the original Hodgkin-Huxley. We analyze the stability of this model and provide insight into its dynamics. In addition to the base model, we develop three extensions. Firstly, we develop a method for the coupling of multiple  neurons, allowing us to simulate a modified synfire chain. Using this coupling method, we introduce a new term $\nu$ to represent the proportion of destroyed ion channels as a result of myocardial necrosis. We introduce this term into our coupling extension first as a parameter, and second as differential equation tracking disease progression. We use these extensions to make statements related to disease prognoses and the differences amung various situations. 
+
+The modelling of biological systems represents a crucial cog in the machine developing solutions to medicinal problems. With our extension, we take a further step towards undstanding the etiology of various diseases sharing a genesis involving cardio-hypoxic events such as strokes and acute trauma. Our model has wide implications from myocardial infarction to drug delivery to carcinogenic pathways. More work must be done in this area to correctly model these disease \textit{in silico}. Only by understanding the pathways and processes involved in disease can we hope to combat it, and eventually, to beat it.  
+
+% section conclusion (end)
+
+
 % subsection static_disease_burden (end)
 \chapter{Additional Material} % (fold)
 \label{sub:web_app}
@@ -569,9 +595,18 @@ Once installed, type RunApp() into the R console. The application will display i
 \label{ssub:dynamic_visualizations}
 
 % subsubsection dynamic_visualizations (end)
+All of the following visualizations are contained within the following iPython notebook: 
+
+\begin{lstlisting}
+  
+http://nbviewer.ipython.org/github/aaronshifman/modeling_final/blob/master/ipynb/python%20model%20-%20isolated.ipynb
+
+\end{lstlisting}
 
 
-\textbf{S1}: Sweep of phase plane for $z \in [0,1]$
+\textbf{Figure S1}: Sweep of phase plane for $z \in [0,1]$
+
+\textbf{Figure S2:} Coupling animation
 
 % section \dynamic_visualizations_and_additional_software (end)
 

@@ -7,8 +7,10 @@
 \BOOKMARK [0][-]{chapter.2}{Modelling Myocardial Necrosis}{}% 7
 \BOOKMARK [1][-]{section.2.1}{Translational Perspective}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.2}{Necrosis Propagation}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.3}{Diseased States}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.4}{Static Disease Burden}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.5}{Dynamic Disease Burden}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.6}{Web App}{chapter.2}% 13
-\BOOKMARK [0][-]{chapter.3}{References}{}% 14
+\BOOKMARK [1][-]{section.2.3}{Static Disease Burden}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.3.1}{Disease Model}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.2}{Distribution of Necrosis}{section.2.3}% 12
+\BOOKMARK [1][-]{section.2.4}{Dynamic Disease Burden}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.4.1}{Disease Model}{section.2.4}% 14
+\BOOKMARK [1][-]{section.2.5}{Web App}{chapter.2}% 15
+\BOOKMARK [0][-]{chapter.3}{References}{}% 16

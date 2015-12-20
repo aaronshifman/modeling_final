@@ -19,7 +19,7 @@
 \fancyhead[C]{Myocardial Necrosis $\bullet$ BIO4134 $\bullet$ Shifman \& Cole} % Custom header text
 \fancyfoot[RO,LE]{Page \thepage} % Custom footer text
 
-\graphicspath{ {/Users/yvesmarcel/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
+\graphicspath{ {/Users/Chris/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
 
 
 % create a new env for the dedication box - just for you Aaron
@@ -84,14 +84,7 @@ The modelling of neurons and associated action potentials started in the early 1
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
-\begin{align}
-C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\
-I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\
-p_{open_{K}} &= n^4\\
-p_{open_{Na}} &= m^3h\\
-p_{open_{l}} &\equiv 1\\
-\frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h}\\
-\end{align}
+$$ \begin{aligned} C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\ I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\ p_{open_{K}} &= n^4, \, p_{open_{Na}} = m^3h\\ p_{open_{l}} &\equiv 1\\ \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h} \end{aligned} $$
 
 This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
@@ -230,14 +223,36 @@ This clearly displays the system oscilating for the appropriate value of $z$. In
 
 The previously described model is useful for observing the dynamics of a single cardiac neuron, however occasionally researchers wish to incorporate several connected neuros in the same system. 
 
-Here we couple neurons, first two, then $n$, in a modified *synfire* chain. In this network, current is expressed through gap junctions and can only travel in one direction. 
+Here we couple neurons, first two, then $n$, in a modified \textbf{synfire} chain. In this network, current is expressed through gap junctions and can only travel in one direction. Current flows from the first neuron ($N_1$) to the second neuron $N_2$ and sequentially through neurons $N_i$ to $N_n$. When the current reaches the final neuron $N_n$, it is returned to the original neuron $N_1$. Conceptually, the model can be thought of as a circular path, though in reality this is a specific kind of boundary condition and has no implications for the true geography of the system. 
+
+From here on, we present only $V$ and omit $W$ from our analysis, as it is not advantageous to track both quantities. In order to couple neurons, we propose the following model to couple neurons $N_A$ and $N_B$:
 
 
-\includegraphics{2couple}
-\includegraphics{ncouple}
+We connect oscillators with a gap junctional current ($I_g = G_g(\Delta V)$). For a population of $n$ oscillators $\Omega$, with members $\omega_i; i\in \textbf{N}; 1\leq i\leq n$. If $\omega_i$ is connected to $x; x\subset\Omega$, then the gap junctional current to $\omega_i$ is $\sum_{x} G_{x,i}(V_i-V_x)$
+
+In the case of 2 oscillators ($A$ and $B$)
+
+$$ \begin{aligned} \frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g(V_A-V_B) + z_A\\ \frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g(V_B-V_A) +z_B\\ \frac{dW_A}{dt} &= \beta V_A - cW_A\\ \frac{dW_B}{dt} &= \beta V_B - cW_B
+\end{aligned} $$
+
+Using the above model, we construct a system with two coupled neurons and graph their time series on the interval $t \in [0,200]$. Observe that both neurons are out of phase by a constant amount.
 
 
+\begin{figure}[!ht]
+  \caption{Two coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{2couple}
+\end{figure}
 
+We further extend the model to couple $n$ neurons. 
+
+\begin{figure}[!ht]
+  \caption{$n=5$ coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{ncouple}
+\end{figure}
+
+Note that the above has used paramters such that the stable limit cycle is sustained. We can use this extension to the FN model in order to answer biologically relevant questions about myocardial necrosis in the following section. 
 % subsection coupled_oscillators (end)
 
 %end original model, begin extension
@@ -266,18 +281,19 @@ Starting with the Fitzhugh Nagumo model equivalent
 \frac{dV}{dt} &= V(\alpha +V)(1-V) -W +z\\
 \frac{dW}{dt} &= \beta V - cW
 \end{align}
-We connect connect oscillators with a gap junctional current ($I_g = G_g(\Delta V)$). For a population of $n$ oscillators $\Omega$, with members $\omega_i; i\in \textbf{N}; 1\leq i\leq n$. If $\omega_i$ is connected to $x; x\subset\Omega$, then the gap junctional current to $\omega_i$ is $\sum_{x} G_{x,i}(V_i-V_x)$
 
-In the case of 2 oscillators ($A$ and $B$)
 
-\begin{align}
-\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g(V_A-V_B) + z_A\\
-\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g(V_B-V_A) +z_B\\
-\frac{dW_A}{dt} &= \beta V_A - cW_A\\
-\frac{dW_B}{dt} &= \beta V_B - cW_B
-\end{align}
 
-\section{Diseased States}
+\section{Static Disease Burden} % (fold)
+\label{sub:static_disease_burden}
+
+Recall that $\nu_i$ is defined as the proportion of channels damaged or lost in neuron $N_i$. We define this as the necrotic burden of neuron $N_i$. In this section we study the effects of an acute injury which leaves the patient with a sudden decrease in neuronal efficiency analogous to a sudden addition of the $\nu_i$ term. We first develop a model for this situation, then use this model to investigate how the distribution of necrotic burden affects the system.
+
+\subsection{Disease Model} % (fold)
+\label{sub:disease_model}
+
+% subsection disease_model (end)
+
 For the coupled oscillators representing cardiac myocytes (eq. 3-6), as the cells die through an apoptotic pathway, a fraction of their gap junctions $\nu \in [0,1]$ will be destroyed, through cell decay.
 
 In order to model disease, each myocyte will have a corresponding $\nu$ term, such that
@@ -288,8 +304,13 @@ In order to model disease, each myocyte will have a corresponding $\nu$ term, su
 \end{align}
 With increasing $\nu$, the cell becomes less responsive to its coupled partners
 
-\section{Static Disease Burden} % (fold)
-\label{sub:static_disease_burden}
+% subsection development_of_model (end)
+
+\subsection{Distribution of Necrosis} % (fold)
+\label{sub:distribution_of_necrosis}
+
+% subsection distribution_of_necrosis (end)
+
 
 \begin{enumerate}
 	\item Does distance (Distance between $N_i$ and $N_j= j -i$) influence $D$
@@ -300,16 +321,45 @@ With increasing $\nu$, the cell becomes less responsive to its coupled partners
 \section{Dynamic Disease Burden} % (fold)
 \label{sub:dynamic_disease_burden}
 
-In order to extend this model to model cardiac necrosis, we use the previously described coupling and add $\nu_i$ as an ordinary differential equation describing the dampening on neuron $i$ ($N_i$). In the present simplication, $\nu_i$ will depend only on time. Define $\nu_{0i}$ as the *a priori* necrotic burden of $N_i$. 
+\subsection{Disease Model} % (fold)
+\label{sub:disease_model}
+
+% subsection disease_model (end)
+
+In order to extend this model to model cardiac necrosis, we use the previously described coupling and staic model, adding $\nu_i$ as an ordinary differential equation describing the dampening on neuron $i$ ($N_i$). In the present simplication, $\nu_i$ will depend only on time. Define $\nu_{0i}$ as the *a priori* necrotic burden of $N_i$. 
 
 We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state. Additionally, we require that any concentration of $\nu_{0i}$ will eventually lead to cell death. We chose the model
 
 $$ \frac{d \nu_i}{dt} = \dot{\nu} = \nu_i (1 - \nu_i) $$
 
-\includegraphics{dynamic}
-\includegraphics{2dyn}
-\includegraphics{ndyn}
-% subsection dynamic_disease_burden (end)
+Giving a distribution of the rate of change corresponding to the following:
+
+\begin{figure}[!ht]
+  \caption{Differential Equation describing the evolution of $\nu_i$ with respect to time. }
+  \centering
+    \includegraphics[width=0.75\textwidth]{dynamic}
+\end{figure}
+
+
+Note that in this model, $\nu_i=0$ is an unstable steady state while $\nu=1$ is a stable steady state. This is desirable for the model, and intuitivly means that any amount of $\nu_i$ will eventually go to 1 and stop the system. 
+
+We demonstrate the above model in a two neuron system.
+
+\begin{figure}[!ht]
+  \caption{Static disease model in two neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0.01, \nu_2 = 0$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{2dyn}
+\end{figure}
+
+
+And also in a system with $n=5$ neurons.
+
+\begin{figure}[!ht]
+  \caption{Static disease model in five neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0.01, \nu_2 = 0, \nu_3 = 0, \nu_4 = 0, \nu_5 = 0$ }
+  \centering
+    \includegraphics[width=0.75\textwidth]{ndyn}
+\end{figure}
+
 
 
 % subsection static_disease_burden (end)

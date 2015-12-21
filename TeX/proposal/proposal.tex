@@ -6,6 +6,7 @@
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{appendix}
+\usepackage{amsfonts}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -23,7 +24,7 @@
 \fancyfoot[RO,LE]{Page \thepage} % Custom footer text
 \fancyfoot[LO,RE]{Shifman \& Cole}
 
-\graphicspath{ {/Users/Chris/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
+\graphicspath{ {/Users/yvesmarcel/repos/modeling_final/TeX/images/} } % hard coded mine, sorry about that
 \renewcommand{\headrulewidth}{2pt}
 \renewcommand{\footrulewidth}{1pt}
 
@@ -89,24 +90,24 @@ The modelling of neurons and associated action potentials started in the early 1
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
-$$ \begin{aligned} C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\ I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\ p_{open_{K}} &= n^4, \, p_{open_{Na}} = m^3h\\ p_{open_{l}} &\equiv 1\\ \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in \{m,n,h\} \end{aligned} $$
+$$ \begin{aligned} C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\ I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\ p_{open_{K}} &= n^4 \\ p_{open_{Na}} &= m^3h\\ p_{open_{l}} &\equiv 1\\ \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in \{m,n,h\} \end{aligned} $$
 
-This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van der Pol oscillator (Bonheffer Van der Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
+This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van der Pol oscillator (Bonheffer-Van der Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
 
 \section{Model Rationale and Variables}
 
-The system presents in the following, non-dimensionalized form. This is not the original Bonheffer Van der Pol model, however it is topologically equivalent and much easier to analyse. All models which follow are non-dimensionalized. 
+The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van der Pol model, however it is topologically equivalent and much easier to analyse. All models which follow are non-dimensionalized. 
 
 $$ \begin{aligned} \frac{dV}{dt} &= V(\alpha+V)(1-V) -W + z \\
 \frac{dW}{dt} &= \beta V-cW \end{aligned} $$
 
-In this model $V$ - in general - represents activation, and in an excitable tissue context represents voltage. $W$ - in general - represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive (with respect to the cell) currents. There are four parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the four parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC (direct current) offset from experimentally injected current of the neuron under study. In our extension to this model, we supplement $z$ with a gap junctional current from coupled cells (see section \ref{sub:coupled_oscillators}). The additional parameters $\alpha$, $\beta$, and $c$ represent ``rate - like'' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
+In this model $V$ - in general - represents activation, and in an excitable tissue context represents voltage. $W$ - in general - represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive (with respect to the cell) currents. There are four parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the four parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Experimentally, $z$ represents the DC (direct current) offset from experimentally injected current of the neuron under study. The additional parameters $\alpha$, $\beta$, and $c$ represent ``rate - like'' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
 
 
 \section{Purpose of Model and Examination}
 
-This model, a simplification of the original Hodgkin Huxley model, intends to model spiking cardiac myocytes. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form networks of neurons. The state of the neuron relies on the $z$ parameter. 
+This model, a simplification of the original Hodgkin Huxley model, intends to model spiking cardiac myocytes. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. These models can be put together to form networks of neurons. The state of the neuron relies on the $z$ parameter. 
 In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. 
 
 
@@ -120,7 +121,7 @@ Initially, we present a naive time series of the model. We notice that with the 
 
 $$ \begin{aligned} \alpha &= 0.01 \\ \beta &= 0.5 \\ c &= 0.1 \\ z &= 0.5 \end{aligned} $$
 
-Using the above parameters, we plot the system on the interval $t \in [0,200]$ with arbitrary units for time. Note that the system is solved through an adaptive solver \textbf{odeint} in Python 2. 
+Using the above parameters, we plot the system on the interval $t \in [0,200]$ with arbitrary units for time in \textbf{Figure 1.1}. Note that the system is solved through an adaptive solver \textbf{odeint} in Python 2. 
 
 
 \section{Model Classification} % (fold)
@@ -163,7 +164,8 @@ $$
 $$
 
 
-Taking $\alpha,\beta,c$ equal to 0.01,0.5,0.1 respectively,
+Taking $\alpha,\beta,c$ equal to 0.01, 0.5, 0.1 respectively,
+
 $$
 \begin{bmatrix}
     −0.02V + (2 - 3V)V+0.01 & -1 \\
@@ -173,13 +175,13 @@ $$
 
 Eigenvalues 1 and 2 are as follows
 
-$$ \lambda_{1,2} \approx \begin{bmatrix} 0.5(-3V^2 - 1.98V + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \\ 0.5(-3V^2 - 1.98V - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \end{bmatrix} $$
+$$ \lambda_{1,2} \approx \frac{1}{2}\begin{bmatrix}-3V^2 - 1.98V + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09 \\ -3V^2 - 1.98V - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09 \end{bmatrix} $$
 
 with corresponding eigenvectors
 
 $$ v_{1,2} \approx \begin{bmatrix} 0.11 + 1.98V - 3V^2 + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \\ 0.11 + 1.98V - 3V^2 - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879} & 1 \end{bmatrix} $$
 
-We plot the eigevalues to describe their dynamics. 
+We plot the eigevalues to describe their dynamics in \textbf{Figure 1.2}. 
 
 \begin{figure}[!ht]
   \caption{Eigenvalues as a function of the steady state $V^*$ for $z$.  $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
@@ -189,65 +191,73 @@ We plot the eigevalues to describe their dynamics.
 
 Note that the vertical axis of the above plot corresponds to the value of the eigenvalue, while the lower horizontal axis denotes the value of the steady state $V^*$ for $z \in [0,5]$ while the upper horizontal axis corresponds to the $z$ value itself.
 
-There is an observable bifurcation when the real component of the eigenvalue passes from negative to positive where $V^*(z) \approx 0$, and when the real component of $\lambda$ passes from positive to negative near $V^*(z) \approx 0.6$. To confirm these values we plot a low resolution bifurcation:
+There is an observable bifurcation when the real component of the eigenvalue passes from negative to positive where $V^*(z) \approx 0$, and when the real component of $\lambda$ passes from positive to negative near $V^*(z) \approx 0.6$. In \textbf{Figure 1.3} we confirm these values with a low resolution bifurcation (a) and subsequently confirm this with a tigher view of the left bifurcation point (b).
 
 
-\begin{figure}[!ht]
-  \caption{Low resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$. Steady state determined after 10,000 time steps. }
-  \centering
-    \includegraphics[width=0.75\textwidth]{lbifur}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{hbifur}
+        \caption{Low resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$. Steady state determined after 10,000 time steps.}
+        \label{fig:lbifur}
+    \end{subfigure}
+    \hfill %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{lbifur}
+        \caption{High resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ Steady state determined after 10,000 time steps.}
+        \label{fig:statB}
+    \end{subfigure}
+    \caption{Bifurcation diagrams for FN model. }\label{fig:dispersion}
 \end{figure}
 
 
-and subsequently confirm this with a tigher view of the left bifurcation point.
+This is an example of a Hopf bifurcation at both of these instances. There is initially a fixed point which is stable, corresponding to no oscillation as well as a pair of complex conjugate eigenvalues. As $z$ increases and reaches the first bifurcation, the fixed point loses stability and the stable limit cycle forms until $z$ reaches the second bifurcation point and the limit cycle collapses back to the single stable fixed point as the real component of the eigenvalue once again becomes negative. We can visualize this stable limit cycle by plotting the phase plane of the system with a stable value of $z = 0.5$ in \textbf{Figure 1.4}.
 
 \begin{figure}[!ht]
-  \caption{High resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ Steady state determined after 10,000 time steps. }
-  \centering
-    \includegraphics[width=0.75\textwidth]{hbifur}
-\end{figure}
-
-
-This is an example of a Hopf bifurcation point at both of these instances. There is initially a fixed point which is stable, corresponding to no oscillation as well as a pair of complex conjugate eigenvalues. As $z$ increases and reaches the first bifurcation, the fixed point loses stability and the stable limit cycle forms. That is, until $z$ reaches the second bifurcation point and the limit cycle collapses back to the single stable fixed point as the real component of the eigenvalue once again becomes negative. We can visualize this stable limit cycle by plotting the phase plane of the system with a stable value of $z = 0.5$.
-
-\begin{figure}[!ht]
-  \caption{Phase plane of the FN system. $\alpha = 0.01, \beta = 0.5,c = 0.1$ }
+  \caption{Phase plane of the FN system. $\alpha = 0.01, \beta = 0.5,c = 0.1, z = 0.5$ }
   \centering
     \includegraphics[width=0.75\textwidth]{phase-plane}
 \end{figure}
 
-This clearly displays the system oscilating for the appropriate value of $z$.
+This clearly displays the system oscilating for a value of $z$.
 
 \section{Coupled Oscillators} % (fold)
 \label{sub:coupled_oscillators}
 
 The previously described model is useful for observing the dynamics of a single cardiac neuron, however occasionally researchers wish to incorporate several connected neuros in the same system. 
 
-Here we couple neurons, first two, then $n$, in a modified \textbf{synfire} chain. In this network, current is expressed through gap junctions and can only travel in one direction. Current flows from the first neuron ($N_1$) to the second neuron $N_2$ and sequentially through neurons $N_i$ to $N_n$. When the current reaches the final neuron $N_n$, it is returned to the original neuron $N_1$. Conceptually, the model can be thought of as a circular path, though in reality this is a specific kind of boundary condition and has no implications for the true geography of the system. 
+Here we couple neurons, first two, then $n$, in a modified synfire chain. In this network, current passes through gap junctions and can only travel in one direction. Current flows from the first neuron ($N_1$) to the second neuron $N_2$ and sequentially through neurons $N_i$ to $N_n$. When the current reaches the final neuron $N_n$, it is returned to the original neuron $N_1$. More formally, for a network of $n$ oscillators $\Omega$ with members $N_i; \, \, i \in \mathbb{N}$ and $1 \leq i \textless j \leq n$ and $j \equiv i+1$, $N_i$ projects onto $N_j$ and $N_n$ projects onto $N_1$. 
+
+
+Conceptually, the model can be thought of as a circular path, though in reality this is a specific kind of boundary condition and has no physical interpretation.
 
 From here on, we present only $V$ and omit $W$ from our analysis, as it is not advantageous to track both quantities. In order to couple neurons, we propose the following model to couple neurons $N_A$ and $N_B$:
 
 
-We connect oscillators with a gap junctional current ($I_g = G_g(\Delta V)$). For a population of $n$ oscillators $\Omega$, with members $\omega_i; i\in \textbf{N}; 1\leq i\leq n$. If $\omega_i$ is connected to $x; x\subset\Omega$, then the gap junctional current to $\omega_i$ is $\sum_{x} G_{x,i}(V_i-V_x)$
+We connect oscillators with a gap junctional current $I_g = H( 0.3 - V_x ) G_g$ where $H(\cdot)$ is the heavyside function. For a population of $n$ oscillators $\Omega$, with members $N_i; i\in \mathbb{N}; 1\leq i\leq n$. If $x; x\subset\Omega$ projects onto $N_i$ then the gap junctional current to $N_i$ is $\sum_{x} G_{x,i}H( 0.3 - V_x )$
 
 In the case of 2 oscillators ($A$ and $B$)
 
-$$ \begin{aligned} \frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g(V_A-V_B) + z_A\\ \frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g(V_B-V_A) +z_B\\ \frac{dW_A}{dt} &= \beta V_A - cW_A\\ \frac{dW_B}{dt} &= \beta V_B - cW_B
+$$ \begin{aligned} \frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + G_g H( 0.3 - V_B ) + z_A\\ \frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + G_g H( 0.3 - V_A ) +z_B\\ \frac{dW_A}{dt} &= \beta V_A - cW_A\\ \frac{dW_B}{dt} &= \beta V_B - cW_B
 \end{aligned} $$
 
-Using the above model, we construct a system with two coupled neurons and graph their time series on the interval $t \in [0,200]$. Observe that both neurons are out of phase by a constant amount.
+The purpose of heavyside thresholding is to implicitly create a spatial time dependence in the system. When an action potential reaches a neuron, a time delay occurs between spike incidence and propagation to the next member of the chain. By forcing propagation to occur only after the signaling member has spiked, implicitly creates a time dependence in intraneuron signal propagation.
+
+Using the above model, we construct a system with two coupled neurons and graph their time series on the interval $t \in [0,200]$ in \textbf{Figure 1.5}. Observe that both neurons are out of phase by a constant amount.
 
 
 \begin{figure}[!ht]
-  \caption{Two coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1$}
+  \caption{Two coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1, z = 0.5$}
   \centering
     \includegraphics[width=0.75\textwidth]{2couple}
 \end{figure}
 
-We further extend the model to couple $n$ neurons. 
+We further extend the model to couple $n$ neurons in \textbf{Figure 1.6}. 
 
 \begin{figure}[!ht]
-  \caption{$n=5$ coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1$ }
+  \caption{$n=5$ coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1, z = 0.5$ }
   \centering
     \includegraphics[width=0.75\textwidth]{ncouple}
 \end{figure}
@@ -256,7 +266,7 @@ Note that the above has used paramters such that the stable limit cycle is susta
 % subsection coupled_oscillators (end)
 
 
-Additionally, we describe the frequency change as a function of the number of neurons in the system. As frequency is defined by $\frac{1}{period}$, with increasing number of neurons, frequency decreases. At the extreme, as $n \rightarrow \infty, f \overset{a.s.}{\rightarrow} 0$.
+Additionally, we describe the frequency change as a function of the number of neurons in the system. As frequency ($f$) is defined by $\frac{1}{T}$, with increasing number of neurons, frequency decreases. At the extreme, as $\lim\limits_{n \rightarrow \infty} f \rightarrow 0$.
 
 
 
@@ -266,7 +276,7 @@ Additionally, we describe the frequency change as a function of the number of ne
     \includegraphics[width=0.75\textwidth]{freq_static}
 \end{figure}
 
-Note that the coupled system behaves as expected. 
+Note that the coupled system behaves as expected in \textbf{Figure 1.7}. 
 
 
 
@@ -289,20 +299,18 @@ Our proposed extension to the FN model plans to shed light on the geneisis, prog
 
 \section{Necrosis Propagation}
 
-As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{\sum^n_{i=1} \nu_i}{n}=\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
+As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, define pro-necrotic burden as $\nu_i$, with total burden of the system equal to $\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
 
 Starting with the Fitzhugh Nagumo model equivalent
-\begin{align}
-\frac{dV}{dt} &= V(\alpha +V)(1-V) -W +z\\
-\frac{dW}{dt} &= \beta V - cW
-\end{align}
+
+$$ \begin{aligned} \frac{dV}{dt} &= V(\alpha +V)(1-V) -W +z\\ \frac{dW}{dt} &= \beta V - cW \end{aligned} $$
 
 
 
 \section{Static Disease Burden} % (fold)
 \label{sub:static_disease_burden}
 
-Recall that $\nu_i$ is defined as the proportion of channels damaged or lost in neuron $N_i$. We define this as the necrotic burden of neuron $N_i$. In this section we study the effects of an acute injury which leaves the patient with a sudden decrease in neuronal efficiency analogous to a sudden addition of the $\nu_i$ term. We first develop a model for this situation, then use this model to investigate how the distribution of necrotic burden affects the system.
+$\nu_i$ is defined as the proportion of channels damaged or lost in neuron $N_i$. We define this as the necrotic burden of neuron $N_i$. In this section we study the effects of an acute injury which leaves the patient with a sudden decrease in neuronal efficiency. We first develop a model for this situation, then use this model to investigate how the distribution of necrotic burden affects the system.
 
 \subsection{Disease Model} % (fold)
 \label{sub:disease_model}
@@ -313,16 +321,15 @@ For the coupled oscillators representing cardiac myocytes, as the cells die thro
 
 In order to model disease, each myocyte will have a corresponding $\nu$ term, such that
 
-\begin{align}
-\frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + (1-\nu_A) G_g(V_A-V_B) + z_A\\
-\frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + (1-\nu_B) G_g(V_B-V_A) +z_B
-\end{align}
+$$ \begin{aligned} \frac{dV_A}{dt} &= V(\alpha +V_A)(1-V_A) -W_A + (1-\nu_A) G_g H(0.3 - V_B) + z_A\\ \frac{dV_B}{dt} &= V(\alpha +V_B)(1-V_B) -W_B + (1-\nu_B) G_g H(0.3 - V_A) +z_B \end{aligned} $$
+
+
 With increasing $\nu$, the cell becomes less responsive to its coupled partners.
 
 We present the above model for both 2 (as a test case) and $n$ coupled neurons with static necrosis term $\nu_i$.
 
 \begin{figure}[!ht]
-  \caption{Static disease model in two neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0.5, \nu_2 = 0$ }
+  \caption{Static disease model in two neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0, \nu_2 = 0.5$ }
   \centering
     \includegraphics[width=0.75\textwidth]{2stat}
 \end{figure}
@@ -348,11 +355,11 @@ We initially investigate how the distance between disease burdens may affect the
 
 \textbf{Lemma:} $\nu_i=1$ is a trivial solution which will destroy the system every time, so from this point onwards it is excluded from all analyses.
 
-\textbf{Proof:} Let $\Omega$ be a population of $n$ neurons called $N_1, N_2, ..., N_{n-1}, N_n$. For any $1 \leq i \leq n$, if $\nu_i=1$, $1-\nu_i=0$, and accordingly $(1-\nu_i) G_g(V_i-V_{i+1)}) + z_i=0$ because $z_i=0$ for any time above the initial impulse. Thus, $z_{eff} = (1-\nu_i) G_g(V_i-V_{i+1}) + z_i = 0$ or the effective $z$ which is acting on the system is $0$ for any $\nu_i=1$. Following this logic, if $z_{eff}=0$ for any neuron $i$, $N_i$ will have a negative real component to its eigenvalue $\lambda$, and thus will have only one steady fixed point solution and not enter a stable limit cycle. Because $N_i$ will be fixed, $N_{i+1}$ will become fixed, and the effect will propegate throughout the system $\Omega$. In this way, $\nu_i=1$ for any $1 \leq i \leq n$ will be a trivial solution to the system.
+\textbf{Proof:} Let $\Omega$ be a population of $n$ neurons called $N_1, N_2, ..., N_{n-1}, N_n$. For any $1 \leq i \leq n$, if $\nu_i=1$, $1-\nu_i=0$, and accordingly $(1-\nu_i) G_g H(0.3 -V_{i+1}) + z_i=0$ because $z_i=0$ for any time above the initial impulse. Thus, $I_{m} = (1-\nu_i) G_g H(0.3-V_{i+1}) + z_i = 0$ or the effective membrane current which is acting on the system is $0$ for any $\nu_i=1$. Following this logic, if $I_m=0$ for any neuron $i$, $N_i$ will have a negative real component to its eigenvalue $\lambda$, and thus will have only one steady fixed point solution and not enter a stable limit cycle. Because $N_i$ will be fixed, $N_{i+1}$ will become fixed, and the effect will propegate throughout the system $\Omega$. In this way, $\nu_i=1$ for any $1 \leq i \leq n$ will be a trivial solution to the system.
 
 We hypothesize that the distance between disease burdens should not play a role in how effective they are in diminishing the system's efficacy. 
 
-To lend evidence to our hypothesis, we construct two systems $A$ and $B$, labelled accordingly. In system $A$, we impose a disease burden on dispersed cells. We damage $N_1$ and $N_3$, leaving all others unaffected ($\nu_i = 0$ for all others). We define $\nu_1 = 0.5$ and $\nu_3 = 0.5$. We plot the solution to the system and observe that, though there are ramifications and the system appears more spastic, it is systained. In system $B$, we impose sequential burdens such that $\nu_1 = 0.5$ and $\nu_2 = 0.5$, leaving all others unburdened ($\nu_i = 0$). In this case, we observe a rapid collapse of the system. 
+To lend evidence to our hypothesis, we construct two systems $A$ and $B$, labelled accordingly. In system $A$, we impose a disease burden on dispersed cells. We damage $N_1$ and $N_3$, leaving all others unaffected ($\nu_i = 0$ for all others). We define $\nu_1 = 0.5$ and $\nu_3 = 0.5$. We plot the solution to the system and observe that, though there are ramifications and the system appears more spastic, it is systained. In system $B$, we impose sequential burdens such that $\nu_1 = 0.5$ and $\nu_2 = 0.5$, leaving all others unburdened ($\nu_i = 0$). In this case in \textbf{Figure 2.3}, we observe a rapid collapse of the system. 
 
 
 \begin{figure}
@@ -381,13 +388,13 @@ We interpret these results at the end of this section.
 % subsection density_of_necrosis (end)
 
 
-We proceed to investigate whether few large burdens or multiple smaller burdens may affect the system more. We construct two systems $A$ and $B$ such that $\sum^n_{i=1} \nu_{Ai} = \sum^n_{i=1} \nu_{Bi}$ but choose to minimize the burden in each cell for system $A$, while we concentrate it in a single neuron for system $B$. We chose to assign $\nu_{1,2,3,4,5}= 0.15$ for system $A$ and $\nu_3 = 0.75$ for system $B$. System $A$ appears to sustain itself while system $B$ rapidly collapses. We interpret these results in the following section.
+We proceed to investigate whether few large burdens or multiple smaller burdens may affect the system more. We construct two systems $A$ and $B$ such that $\sum^n_{i=1} \nu_{Ai} = \sum^n_{i=1} \nu_{Bi}$ but choose to minimize the burden in each cell for system $A$, while we concentrate it in a single neuron for system $B$. We chose to assign $\nu_{1,2,3,4,5}= 0.15$ for system $A$ and $\nu_3 = 0.75$ for system $B$. System $A$ appears to sustain itself while system $B$ rapidly collapses as in \textbf{Figure 2.4}. We interpret these results in the following section.
 
 \begin{figure}
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \includegraphics[width=\textwidth]{statA2}
-        \caption{Minimal necrotic burden per neuron in a static disease model. $\nu_{1,2,3,4,5} = 0.15, \alpha = 0.01, \beta = 0.5,c = 0.1$}
+        \caption{Minimal necrotic burden in a single neuron for a static disease model. $\nu_{1,2,3,4,5} = 0.15, \alpha = 0.01, \beta = 0.5,c = 0.1$}
         \label{fig:statA2}
     \end{subfigure}
     \hfill %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
@@ -421,7 +428,7 @@ In order to extend this model to model cardiac necrosis, we use the previously d
 
 % subsection disease_model (end)
 
-We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state. Additionally, we require that any concentration of $\nu_{0i}$ will eventually lead to cell death. We chose the model
+We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state. Additionally, we require that any concentration of $\nu_{0i}$ will eventually lead to cell death. We chose the following model and plot it in \textbf{Figure 2.5}:
 
 $$ \frac{d \nu_i}{dt} = \dot{\nu} = \nu_i (1 - \nu_i) $$
 
@@ -436,7 +443,7 @@ Giving a distribution of the rate of change corresponding to the following:
 
 Note that in this model, $\nu_i=0$ is an unstable steady state while $\nu=1$ is a stable steady state. This is desirable for the model, and intuitivly means that any amount of $\nu_i$ will eventually go to 1 and stop the system. 
 
-We demonstrate the above model in a two neuron system.
+We demonstrate the above model in a two neuron system in \textbf{Figure 2.6}.
 
 \begin{figure}[!ht]
   \caption{Dynamic disease model in two neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0.01, \nu_2 = 0$ }
@@ -445,7 +452,7 @@ We demonstrate the above model in a two neuron system.
 \end{figure}
 
 
-And also in a system with $n=5$ neurons.
+And also in a system with $n=5$ neurons in \textbf{Figure 2.7}.
 
 \begin{figure}[!ht]
   \caption{Dynamic disease model in five neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z = 0.5, \nu_1 = 0.01, \nu_2 = 0, \nu_3 = 0, \nu_4 = 0, \nu_5 = 0$ }
@@ -456,7 +463,7 @@ And also in a system with $n=5$ neurons.
 \subsection{Dispersion of Necrosis} % (fold)
 \label{sub:dispersion_of_necrosis}
 
-We repeat the above analysis for the dynamic system. First we create a system $A$ with initial dispursed necrosis such that $\nu_{1,3} = 0.1$ and $\nu_{2,4,5} = 0$. We additionally construct a second system $B$ such that the initial necrosis is clustered, $\nu_{1,2} = 0.1$ and $\nu_{3,4,5} = 0$. We plot the solution to the system and observe no radical difference between the two systems.
+We repeat the above analysis for the dynamic system. First we create a system $A$ with initial dispursed necrosis such that $\nu_{1,3} = 0.1$ and $\nu_{2,4,5} = 0$. We additionally construct a second system $B$ such that the initial necrosis is clustered, $\nu_{1,2} = 0.1$ and $\nu_{3,4,5} = 0$. We plot the solution to the system in \textbf{Figure 2.8} and observe no radical difference between the two systems.
 
 \begin{figure}
     \centering
@@ -482,7 +489,7 @@ We discuss implications of the above in the next section.
 \label{sub:density_of_necrosis}
 
 
-Additionally, we examine the effect of necrosis density on system performance. We create a system $A$ where all of the initial necrosis is concentrated in a single neuron such that $\nu_3 = 0.5$ and $\nu_{1,2,4,5} - 0$. We compare this to system $B$ where we give each neuron a smaller level of disease burden such that $\sum^n_{i=1} \nu_{Ai} = \sum^n_{i=1} \nu_{Bi}$. In system $B$ we define $\nu_{1,2,3,4,5} = 0.1$.
+Additionally, we examine the effect of necrosis density on system performance and plot in \textbf{Figure 2.9}. We create a system $A$ where all of the initial necrosis is concentrated in a single neuron such that $\nu_3 = 0.5$ and $\nu_{1,2,4,5} - 0$. We compare this to system $B$ where we give each neuron a smaller level of disease burden such that $\sum^n_{i=1} \nu_{Ai} = \sum^n_{i=1} \nu_{Bi}$. In system $B$ we define $\nu_{1,2,3,4,5} = 0.1$.
 
 
 \begin{figure}
@@ -542,7 +549,7 @@ The modelling of biological systems represents a crucial cog in the machine deve
 
 In addition to the previous analysis, we present an interactive model to observe the effects of various combinations of parameters. The application, at present, only performs analysis for the static case of the model.
 
-The application is written in the programming language R 3.2.2 and hosted on shinyapps. The app can also be built locally. 
+The application is written in the programming language R 3.2.2 and hosted on shinyapps in \textbf{Figure 3.1}. The app can also be built locally. 
 
 The application uses the forward Euler method for solving differential equations, and the user is invited to see the effects of changing any parameter on the system's behavior. Please find the web application running at 
 
@@ -610,9 +617,9 @@ http://nbviewer.ipython.org/github/aaronshifman/modeling_final
 
 The website containes two visualizations with associated code:
 
-\textbf{Figure S1}: Sweep of phase plane for $z \in [0,1]$
+\textbf{Figure S1}: Sweep of phase plane for $z \in [0,5]$
 
-\textbf{Figure S2:} Coupling animation
+\textbf{Figure S2:} Coupling animation for $\nu \in [0,1]$
 
 % section \dynamic_visualizations_and_additional_software (end)
 

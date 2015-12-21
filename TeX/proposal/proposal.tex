@@ -89,24 +89,24 @@ The modelling of neurons and associated action potentials started in the early 1
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
-$$ \begin{aligned} C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\ I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\ p_{open_{K}} &= n^4, \, p_{open_{Na}} = m^3h\\ p_{open_{l}} &\equiv 1\\ \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in{m,n,h} \end{aligned} $$
+$$ \begin{aligned} C_m \frac{dV}{dt} &= I_m = I_{Na} + I_{K} + I_l \\ I_x &= \bar{G_x}p_{open}(V_m-E_x); x\in\{Na,K,l\}\\ p_{open_{K}} &= n^4, \, p_{open_{Na}} = m^3h\\ p_{open_{l}} &\equiv 1\\ \frac{dx}{dt} &= \alpha_x(V)(1-x)-\beta_x(V)x; x\in \{m,n,h\} \end{aligned} $$
 
-This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van-der-Pol oscillator (Bonheffer-Van-der-Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
+This model is impossible to solve analytically, and quite difficult to explore numerically due to both the high dimensionality of the system and the large number of parameters. In studying hyperplanes through the 4D phase space, Nagumo noticed that all planes of activation and recovery variables had a similar shape, so he tried modeling neuronal activity as a modified Van der Pol oscillator (Bonheffer Van der Pol oscillator). This model, while not looking like stereotyped action potentials, has several features of the full hodgkin huxley model such as activation hysteresis and spike blocking. Despite not looking like a neuronal action potential, it closely resembles cardiac action potentials and have since been adapted as one of the de-facto models for cardiac simulations. 
 
 
 \section{Model Rationale and Variables}
 
-The system presents in the following, non-dimensionalized form. This is not the original Bonheffer-Van-der-Pol model, however it is topologically equivalent and much easier to analyse. All models which follow are non-dimensionalized. 
+The system presents in the following, non-dimensionalized form. This is not the original Bonheffer Van der Pol model, however it is topologically equivalent and much easier to analyse. All models which follow are non-dimensionalized. 
 
 $$ \begin{aligned} \frac{dV}{dt} &= V(\alpha+V)(1-V) -W + z \\
 \frac{dW}{dt} &= \beta V-cW \end{aligned} $$
 
-In this model $V$ - in general - represents activation, and in an excitable tissue context represents voltage. and $W$ - in general represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive (with regard to the cell) currents. There are four parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the four parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the direct current (DC) offset from experimentally injected current of the neuron under study. In our extension to this model, we will replace $z$ with a gap junctional current from coupled cells (see section \ref{sub:coupled_oscillators}). The additional parameters $\alpha$, $\beta$, and $c$ represent ``rate - like'' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
+In this model $V$ - in general - represents activation, and in an excitable tissue context represents voltage. $W$ - in general - represents recovery, and has no realistic interpretation in a biological context, it would be the sum of all positive (with respect to the cell) currents. There are four parameters in the model, $\alpha$, $\beta$, $c$, and $z$. Of the four parameters, we have significant interest in $z$, as it will determine the bifurcation of the model. Neurologically, $z$ represents the DC (direct current) offset from experimentally injected current of the neuron under study. In our extension to this model, we supplement $z$ with a gap junctional current from coupled cells (see section \ref{sub:coupled_oscillators}). The additional parameters $\alpha$, $\beta$, and $c$ represent ``rate - like'' constants which determine oscillator traits such as amplitude, frequency, duty cycle, and excitability.
 
 
 \section{Purpose of Model and Examination}
 
-This model, a simplification of the original Hodgkin Huxley model, intends to model spiking cardiac neurons. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form multi-dimensional models of neuron trends. The state of the neuron relies on the $z$ parameter. 
+This model, a simplification of the original Hodgkin Huxley model, intends to model spiking cardiac myocytes. Tuning the individual parameters can adapt the model to fit various states and conditions which may be investigated by researchers. Various combinations of parameters can also model neuronal behaviors such as bursting and chattering. These models can be put together to form networks of neurons. The state of the neuron relies on the $z$ parameter. 
 In this project, we plan to evaluate the stability of system at rest and with regards to the bifurcation parameter $z$. We plan to evaluate how the system responds and bifurcates with regards to this parameter, and interpret these stabilities biologically. 
 
 
@@ -116,11 +116,11 @@ In this project, we plan to evaluate the stability of system at rest and with re
     \includegraphics[width=0.75\textwidth]{model}
 \end{figure}
 
-Initially, we present a naive time series of the model. We notice that with the set of parameters presented in Eugene Izhikevich 2006, the system oscillates in a stable limit cycle. These parameters, utilized throughout the rest of this report unless otherwise noted, are as follows:
+Initially, we present a naive time series of the model. We notice that with the set of parameters presented in Izhikevich 2006, the system oscillates in a stable limit cycle.$^4$ These parameters, utilized throughout the rest of this report unless otherwise noted, are as follows:
 
 $$ \begin{aligned} \alpha &= 0.01 \\ \beta &= 0.5 \\ c &= 0.1 \\ z &= 0.5 \end{aligned} $$
 
-Using the above parameters, we plot the system on the interval $0 < t \leq 200$ with arbitrary units for time. Note that the system is solved through an adaptive solver \textbf{odeint} in Python 2. 
+Using the above parameters, we plot the system on the interval $t \in [0,200]$ with arbitrary units for time. Note that the system is solved through an adaptive solver \textbf{odeint} in Python 2. 
 
 
 \section{Model Classification} % (fold)
@@ -129,18 +129,18 @@ Using the above parameters, we plot the system on the interval $0 < t \leq 200$ 
 We classify the system according to the criterion established by Haefner et. al $^{3}$ and find the model is:
 
 \begin{enumerate}
-	\item \textbf{Mechanistic} rather than phenomenological. FN models neural dyanmics as a function of individual processes acting on the neuron, including terms analagous to the DC offset, excitation, and relaxation. In this way, the model details the process of neural excitation and is process oriented.
+	\item \textbf{Mechanistic} rather than phenomenological. Fitzhugh Nagumo (FN) models neural dyanmics as a function of individual processes acting on the neuron, including terms analagous to the DC offset, excitation, and relaxation. In this way, the model details the process of neural excitation and is process oriented.
 	\item \textbf{Dynamic} rather than static. The system models excitation and relaxation as a function of time, and is thus a dynamic model.
 	\item \textbf{Continuous} rather than discrete. The model uses time on an arbitrary scale as a continuous variable, instead of taking predefined ``steps''. In this way, the system uses time continuously. 
 	\item \textbf{Spatially homogenous} rather than spatially heterogeneous. The model contains no explicit description of space, and is thus homogeneous. 
-	\item \textbf{Deterministic} rather than stochastic. All terms in the model are entirely predictable given initial conditions and no events based on chance occur. Thus the model is deterministic. 
+	\item \textbf{Deterministic} rather than stochastic. All terms in the model are entirely determined given initial conditions and no events based on chance occur. Thus the model is deterministic. 
 \end{enumerate}
 
 % subsection dimensionalization (end)
 \section{Stability Analysis} % (fold)
 \label{sub:stability_analysis}
 
-Taking our model such that:
+Taking the model such that:
 
 $$\begin{aligned}
 f(x) &= \dot{V} = V(\alpha + V)(1-V) -W +z \\
@@ -166,14 +166,12 @@ $$
 Taking $\alpha,\beta,c$ equal to 0.01,0.5,0.1 respectively,
 $$
 \begin{bmatrix}
-    −0.02V+(2−3V)V+0.01 & -1 \\
+    −0.02V + (2 - 3V)V+0.01 & -1 \\
     0.5 & -0.1 \\    
 \end{bmatrix}
 $$
 
-This implies that eigenvalues $\lambda_{1,2}$ may be complex or not. 
-
-Eigenvalues 1 and 2 as follows
+Eigenvalues 1 and 2 are as follows
 
 $$ \lambda_{1,2} \approx \begin{bmatrix} 0.5(-3V^2 - 1.98V + \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \\ 0.5(-3V^2 - 1.98V - \sqrt{ 9V^4 + 11.88 V^3 + 3.2604 V^2 - 0.4356 V - 1.9879 } - 0.09) \end{bmatrix} $$
 
@@ -191,11 +189,11 @@ We plot the eigevalues to describe their dynamics.
 
 Note that the vertical axis of the above plot corresponds to the value of the eigenvalue, while the lower horizontal axis denotes the value of the steady state $V^*$ for $z \in [0,5]$ while the upper horizontal axis corresponds to the $z$ value itself.
 
-There is an observable bifurcation when the real component of the eigenvalue passes from negative to positive just above $V^*(z) = 0$, and when the real component of $\lambda$ passes from positive to negative, at just below $V^*(z) = 0.6$. To confirm these values we plot a low resolution bifurcation:
+There is an observable bifurcation when the real component of the eigenvalue passes from negative to positive where $V^*(z) \approx 0$, and when the real component of $\lambda$ passes from positive to negative near $V^*(z) \approx 0.6$. To confirm these values we plot a low resolution bifurcation:
 
 
 \begin{figure}[!ht]
-  \caption{Low resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \caption{Low resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$. Steady state determined after 10,000 time steps. }
   \centering
     \includegraphics[width=0.75\textwidth]{lbifur}
 \end{figure}
@@ -204,24 +202,21 @@ There is an observable bifurcation when the real component of the eigenvalue pas
 and subsequently confirm this with a tigher view of the left bifurcation point.
 
 \begin{figure}[!ht]
-  \caption{High resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \caption{High resolution bifurcation diagram of the system. Stable limit of $V$ plotted on the vertical axis while $z$ is depicted on the horizontal. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ Steady state determined after 10,000 time steps. }
   \centering
     \includegraphics[width=0.75\textwidth]{hbifur}
 \end{figure}
 
 
-This appears to be an example of a Hopf bifurcation point at both of these instances. There is initially a fixed point which is stable, corresponding to no oscillation as well as a pair of complex conjugate eigenvalues. As $z$ increases and reaches the first bifurcation, the fixed point loses stability and the stable limit cycle forms. That is, until $z$ reaches the seconf bifurcation point and the limit cycle collapses back to the single stable fixed point as the real component of the eigenvalue once again becomes negative. We can visualize this stable limit cycle by plotting the phase plane of the system with a stable value of $z = 0.5$.
+This is an example of a Hopf bifurcation point at both of these instances. There is initially a fixed point which is stable, corresponding to no oscillation as well as a pair of complex conjugate eigenvalues. As $z$ increases and reaches the first bifurcation, the fixed point loses stability and the stable limit cycle forms. That is, until $z$ reaches the second bifurcation point and the limit cycle collapses back to the single stable fixed point as the real component of the eigenvalue once again becomes negative. We can visualize this stable limit cycle by plotting the phase plane of the system with a stable value of $z = 0.5$.
 
 \begin{figure}[!ht]
-  \caption{Phase plane of the FN system. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \caption{Phase plane of the FN system. $\alpha = 0.01, \beta = 0.5,c = 0.1$ }
   \centering
     \includegraphics[width=0.75\textwidth]{phase-plane}
 \end{figure}
 
-This clearly displays the system oscilating for the appropriate value of $z$. In the following section, we take advantage of this property and modify the $z$ term to incorporate both coupled oscilators and the disease etiology of myocardial necrosis. 
-
-
-
+This clearly displays the system oscilating for the appropriate value of $z$.
 
 \section{Coupled Oscillators} % (fold)
 \label{sub:coupled_oscillators}
@@ -244,7 +239,7 @@ Using the above model, we construct a system with two coupled neurons and graph 
 
 
 \begin{figure}[!ht]
-  \caption{Two coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \caption{Two coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1$}
   \centering
     \includegraphics[width=0.75\textwidth]{2couple}
 \end{figure}
@@ -252,7 +247,7 @@ Using the above model, we construct a system with two coupled neurons and graph 
 We further extend the model to couple $n$ neurons. 
 
 \begin{figure}[!ht]
-  \caption{$n=5$ coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1,z \in [0,5]$ }
+  \caption{$n=5$ coupled neurons. $\alpha = 0.01, \beta = 0.5,c = 0.1$ }
   \centering
     \includegraphics[width=0.75\textwidth]{ncouple}
 \end{figure}
@@ -286,7 +281,7 @@ The heart serves a vital role in many organisms. The timely and regular delivery
 
 In particular, myocardial necrosis can be caused by accute oxygen deprivation of myocardial tissues, commonly experienced during a heart attack. Other potential etiologies stem from depriving this tissue of the blood it requires; dangerous increase in physical stresses, coronary artery disease, and accute hemerage all have the potential to play into cardiac necrosis, perhaps in tandem. 
 
-In our investigation into the decreasing efficiency of a heart-like system, we will model several scenarios that may be of consequence to sufferers of cardiac necrosis. In particular, we study two cases. The first, static necrosis, closely resembles a short term or acute stress on myocardial tissue, be it a myocardial infarction or trauma. We will investigate how the distribution of necrosis affects the system as a whole through the FN model. Through a translation lens, this equates to the decrease in efficiency as a consequence of various kinds of trauma. The second case will be a slowly increasing level of necrosis. This more closely resembles coronary artery disease, which has the potential to starve the tissues of oxygen for many years, slowly leading to health deficits in older age. We study the approximate timeframe for simulated tachycardia, or dangerously low heart beat. 
+In our investigation into the decreasing efficiency of a heart-like system, we will model several scenarios that may be of consequence to sufferers of cardiac necrosis. In particular, we study two cases. The first, static necrosis, closely resembles a short term or acute stress on myocardial tissue, be it a myocardial infarction or trauma. We will investigate how the distribution of necrosis affects the system as a whole through the FN model. Through a translation lens, this equates to the decrease in efficiency as a consequence of various kinds of trauma. The second case will be a slowly increasing level of necrosis. This more closely resembles coronary artery disease, which has the potential to starve the tissues of oxygen for many years, slowly leading to health deficits in older age. 
 
 Throughout the investigation, we refer to a cell's necrosis burden as analagous to a protein build up, though this simply refers to the degree of degredation for that specific cell.
 
@@ -629,6 +624,7 @@ The website containes two visualizations with associated code:
   \item Abbott, L. . Lapicque’s introduction of the integrate-and-fire model neuron \(1907\). Brain Res. Bull. 50, 303–304 \(1999\).
   \item Hodgkin, A. L., Huxley, A. F. A quantitative description of membrane current and its application to conduction and excitation in nerve. J. Physiol. 117, 500–44 \(1952\).
   \item Haefner, J. W. Models of Systems. Modeling Biological Systems: Principles and Applications \(Springer, 2005\). doi:10.1007/0-387-25012-3\_1
+  \item 1. Izhikevich, E. M. Dynamical Systems in Neuroscience. MIT Press (2006).
 \end{enumerate}
 
 

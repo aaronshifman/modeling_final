@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 DEC 2015 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 DEC 2015 11:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -491,7 +491,7 @@ Chapter 1.
 [4
 
 ] [5]
-</Users/Chris/repos/modeling_final/TeX/images/model.png, id=236, 433.62pt x 289
+</Users/Chris/repos/modeling_final/TeX/images/model.png, id=237, 433.62pt x 289
 .08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/model.png Graphic file (type
  png)
@@ -517,7 +517,7 @@ Overfull \hbox (39.11063pt too wide) detected at line 180
  []
 
 
-</Users/Chris/repos/modeling_final/TeX/images/eig.png, id=253, 433.62pt x 289.0
+</Users/Chris/repos/modeling_final/TeX/images/eig.png, id=254, 433.62pt x 289.0
 8pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/eig.png Graphic file (type p
 ng)
@@ -526,7 +526,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/eig.png u
 sed on input line 187.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/lbifur.png, id=254, 433.62pt x 28
+</Users/Chris/repos/modeling_final/TeX/images/lbifur.png, id=255, 433.62pt x 28
 9.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/lbifur.png Graphic file (typ
 e png)
@@ -535,7 +535,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/lbifur.pn
 g used on input line 198.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/hbifur.png, id=255, 401.5pt x 272
+</Users/Chris/repos/modeling_final/TeX/images/hbifur.png, id=256, 401.5pt x 272
 .01625pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/hbifur.png Graphic file (typ
 e png)
@@ -550,7 +550,7 @@ LaTeX Warning: Text page 9 contains only floats.
 
 [9 </Users/Chris/repos/modeling_final/TeX/images/lbifur.png> </Users/Chris/repo
 s/modeling_final/TeX/images/hbifur.png>]
-</Users/Chris/repos/modeling_final/TeX/images/phase-plane.png, id=267, 433.62pt
+</Users/Chris/repos/modeling_final/TeX/images/phase-plane.png, id=268, 433.62pt
  x 289.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/phase-plane.png Graphic file
  (type png)
@@ -560,7 +560,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/phase-pla
 ne.png used on input line 216.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
  [10 </Users/Chris/repos/modeling_final/TeX/images/phase-plane.png>]
-</Users/Chris/repos/modeling_final/TeX/images/2couple.png, id=274, 433.62pt x 2
+</Users/Chris/repos/modeling_final/TeX/images/2couple.png, id=275, 433.62pt x 2
 89.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/2couple.png Graphic file (ty
 pe png)
@@ -569,7 +569,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2couple.p
 ng used on input line 244.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/ncouple.png, id=275, 433.62pt x 2
+</Users/Chris/repos/modeling_final/TeX/images/ncouple.png, id=276, 433.62pt x 2
 89.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/ncouple.png Graphic file (ty
 pe png)
@@ -579,7 +579,7 @@ ng used on input line 252.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
 [11 </Users/Chris/repos/modeling_final/TeX/images/2couple.png>]
-</Users/Chris/repos/modeling_final/TeX/images/freq_static.png, id=281, 433.62pt
+</Users/Chris/repos/modeling_final/TeX/images/freq_static.png, id=282, 433.62pt
  x 289.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/freq_static.png Graphic file
  (type png)
@@ -594,7 +594,7 @@ Chapter 2.
 [14
 
 ] [15]
-</Users/Chris/repos/modeling_final/TeX/images/2stat.png, id=304, 385.44pt x 256
+</Users/Chris/repos/modeling_final/TeX/images/2stat.png, id=305, 385.44pt x 256
 .96pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/2stat.png Graphic file (type
  png)
@@ -603,7 +603,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2stat.png
  used on input line 327.
 (pdftex.def)             Requested size: 270.0pt x 180.00015pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/nstat.png, id=305, 385.44pt x 256
+</Users/Chris/repos/modeling_final/TeX/images/nstat.png, id=306, 385.44pt x 256
 .96pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/nstat.png Graphic file (type
  png)
@@ -612,7 +612,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/nstat.png
  used on input line 334.
 (pdftex.def)             Requested size: 270.0pt x 180.00015pt.
  [16 </Users/Chris/repos/modeling_final/TeX/images/2stat.png>]
-</Users/Chris/repos/modeling_final/TeX/images/statA.png, id=315, 385.44pt x 266
+</Users/Chris/repos/modeling_final/TeX/images/statA.png, id=316, 385.44pt x 266
 .9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/statA.png Graphic file (type
  png)
@@ -626,7 +626,7 @@ Underfull \hbox (badness 1303) in paragraph at lines 362--362
  []
 
 
-</Users/Chris/repos/modeling_final/TeX/images/statB.png, id=316, 385.44pt x 266
+</Users/Chris/repos/modeling_final/TeX/images/statB.png, id=317, 385.44pt x 266
 .9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/statB.png Graphic file (type
  png)
@@ -635,7 +635,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statB.png
  used on input line 368.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
  [17 </Users/Chris/repos/modeling_final/TeX/images/nstat.png>]
-</Users/Chris/repos/modeling_final/TeX/images/statA2.png, id=322, 385.44pt x 26
+</Users/Chris/repos/modeling_final/TeX/images/statA2.png, id=323, 385.44pt x 26
 6.9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/statA2.png Graphic file (typ
 e png)
@@ -644,7 +644,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statA2.pn
 g used on input line 389.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/statB2.png, id=323, 385.44pt x 26
+</Users/Chris/repos/modeling_final/TeX/images/statB2.png, id=324, 385.44pt x 26
 6.9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/statB2.png Graphic file (typ
 e png)
@@ -655,7 +655,7 @@ g used on input line 396.
 
 [18 </Users/Chris/repos/modeling_final/TeX/images/statA.png> </Users/Chris/repo
 s/modeling_final/TeX/images/statB.png>]
-</Users/Chris/repos/modeling_final/TeX/images/dynamic.png, id=331, 433.62pt x 2
+</Users/Chris/repos/modeling_final/TeX/images/dynamic.png, id=332, 433.62pt x 2
 89.08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/dynamic.png Graphic file (ty
 pe png)
@@ -664,7 +664,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynamic.p
 ng used on input line 433.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/2dyn.png, id=332, 433.62pt x 289.
+</Users/Chris/repos/modeling_final/TeX/images/2dyn.png, id=333, 433.62pt x 289.
 08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png Graphic file (type 
 png)
@@ -673,7 +673,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png
 used on input line 444.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/ndyn.png, id=333, 433.62pt x 289.
+</Users/Chris/repos/modeling_final/TeX/images/ndyn.png, id=334, 433.62pt x 289.
 08pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/ndyn.png Graphic file (type 
 png)
@@ -683,7 +683,7 @@ used on input line 453.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
  [19 </Users/Chris/repos/modeling_final/TeX/images/statA2.png> </Users/Chris/re
 pos/modeling_final/TeX/images/statB2.png>]
-</Users/Chris/repos/modeling_final/TeX/images/dynA.png, id=340, 385.44pt x 266.
+</Users/Chris/repos/modeling_final/TeX/images/dynA.png, id=341, 385.44pt x 266.
 9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/dynA.png Graphic file (type 
 png)
@@ -703,7 +703,7 @@ Underfull \hbox (badness 4353) in paragraph at lines 465--465
  []
 
 
-</Users/Chris/repos/modeling_final/TeX/images/dynB.png, id=341, 385.44pt x 266.
+</Users/Chris/repos/modeling_final/TeX/images/dynB.png, id=342, 385.44pt x 266.
 9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/dynB.png Graphic file (type 
 png)
@@ -719,7 +719,7 @@ Underfull \hbox (badness 4353) in paragraph at lines 472--472
 
 [20 </Users/Chris/repos/modeling_final/TeX/images/dynamic.png> </Users/Chris/re
 pos/modeling_final/TeX/images/2dyn.png>]
-</Users/Chris/repos/modeling_final/TeX/images/dynA2.png, id=348, 385.44pt x 266
+</Users/Chris/repos/modeling_final/TeX/images/dynA2.png, id=349, 385.44pt x 266
 .9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png Graphic file (type
  png)
@@ -728,7 +728,7 @@ Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png
  used on input line 491.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-</Users/Chris/repos/modeling_final/TeX/images/dynB2.png, id=349, 385.44pt x 266
+</Users/Chris/repos/modeling_final/TeX/images/dynB2.png, id=350, 385.44pt x 266
 .9975pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/dynB2.png Graphic file (type
  png)
@@ -753,7 +753,7 @@ X/images/dynB.png> </Users/Chris/repos/modeling_final/TeX/images/dynA2.png> </U
 sers/Chris/repos/modeling_final/TeX/images/dynB2.png>] [23]
 Chapter 3.
 
-</Users/Chris/repos/modeling_final/TeX/images/R.png, id=368, 1071.00125pt x 949
+</Users/Chris/repos/modeling_final/TeX/images/R.png, id=369, 1071.00125pt x 949
 .5475pt>
 File: /Users/Chris/repos/modeling_final/TeX/images/R.png Graphic file (type png
 )
@@ -787,14 +787,14 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 633.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 640.
 [27
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 633.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 640.
  (./proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 633.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 633.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 640.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 640.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: E1EA3A7941CF3792B4F042D69F3779EF;1762.
 
@@ -805,12 +805,12 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 633.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 640.
  ) 
 Here is how much of TeX's memory you used:
- 8929 strings out of 493089
- 136615 string characters out of 6134842
- 245205 words of memory out of 5000000
+ 8932 strings out of 493089
+ 136658 string characters out of 6134842
+ 245254 words of memory out of 5000000
  12199 multiletter control sequences out of 15000+600000
  13310 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -832,10 +832,10 @@ texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on proposal.pdf (30 pages, 976396 bytes).
+Output written on proposal.pdf (30 pages, 976526 bytes).
 PDF statistics:
- 485 PDF objects out of 1000 (max. 8388607)
- 388 compressed objects within 4 object streams
- 103 named destinations out of 1000 (max. 500000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 392 compressed objects within 4 object streams
+ 106 named destinations out of 1000 (max. 500000)
  319 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -85,7 +85,7 @@ Neuroscience frequently relies on robust mathematical models to simulate and inv
 
 \chapter{The Fitzhugh-Nagumo Model}
 
-The modelling of neurons and associated action potentials started in the early 1900s with the ``integrate and fire'' model.$^1$ In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^2$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van-der-Pol oscillator.$^3$ This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
+The modelling of neurons and associated action potentials started in the early 1900s with the ``integrate and fire'' model.$^1$ In 1952, Hodgkin and Huxley created a biologically relevant 4 dimensional system of equations to describe neuron dynamics at a point.$^2$ While very interesting to biologists, mathematicians found the model too difficult to systematically study. In 1961 Richard Fitzhugh created a 2D caricature of the Hodgkin Huxley model (activation and recovery) using a modified Van der Pol oscillator.$^3$ This model has been both well studied and well characterized. Additionally, it has found many uses in cardiac models due to its simplicity and similarity in shape to a cardiac action potential. 
 
 The Hodgkin Huxley equations described how neuronal membrane voltage changed over time, given a large number of parameters. 
 
@@ -549,14 +549,22 @@ In addition to the previous analysis, we present an interactive model to observe
 
 The application is written in the programming language R 3.2.2 and hosted on shinyapps. The app can also be built locally. 
 
-The application uses the forward Euler method for solving differential equations, and the user is invited to see the effects of changing any parameter on the system's behavior. 
+The application uses the forward Euler method for solving differential equations, and the user is invited to see the effects of changing any parameter on the system's behavior. Please find the web application running at 
+
+\begin{lstlisting}
+  
+https://ccole.shinyapps.io/fn_ex
+
+\end{lstlisting}
+
+
 
 % section description_of_model (end)}
 
 \begin{figure}[!ht]
   \caption{Interactive visualization of two coupled neurons following the FN model with extension. }
   \centering
-    \includegraphics[width=0.75\textwidth]{R}
+    \includegraphics[width=0.5\textwidth]{R}
 \end{figure}
 
 % subsection web_app (end)
@@ -595,14 +603,17 @@ Once installed, type RunApp() into the R console. The application will display i
 \label{ssub:dynamic_visualizations}
 
 % subsubsection dynamic_visualizations (end)
-All of the following visualizations are contained within the following iPython notebook: 
+Please visit the following webpage to view the online-only supplemental material
 
 \begin{lstlisting}
   
-http://nbviewer.ipython.org/github/aaronshifman/modeling_final/blob/master/ipynb/python%20model%20-%20isolated.ipynb
+http://nbviewer.ipython.org/github/aaronshifman/modeling_final
+/blob/master/ipynb/Supplemental_Material.ipynb
 
 \end{lstlisting}
 
+
+The website containes two visualizations with associated code:
 
 \textbf{Figure S1}: Sweep of phase plane for $z \in [0,1]$
 

@@ -11,7 +11,7 @@ This repository contains all work pertaining to the report entitled "Extending t
 
 Resources:
 
-1. Report as a PDF: [Click here](https://github.com/aaronshifman/modeling_final/blob/master/TeX/proposal/proposal.pdf)
+1. Report as a PDF: [Click here](https://github.com/aaronshifman/modeling_final/raw/master/TeX/proposal/proposal.pdf)
 2. Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
 3. Supplemental Material: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final
 /blob/master/ipynb/Supplemental_Material.ipynb)

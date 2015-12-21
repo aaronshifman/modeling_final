@@ -9,12 +9,12 @@ This repository contains all work pertaining to the report entitled "Extending t
 - `/shiny/` contains all code neccesary to build our web app locally in R and shiny. 
 - `/src/` contains misc. code. 
 
+Resources:
 
-Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
-
-Supplemental Material: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final
+1. Report as a PDF: [Click here](https://github.com/aaronshifman/modeling_final/blob/master/TeX/proposal/proposal.pdf)
+2. Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
+3. Supplemental Material: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final
 /blob/master/ipynb/Supplemental_Material.ipynb)
-
-Full Analysis: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final/blob/master/ipynb/python%20model%20-%20isolated.ipynb)
+4. ull Analysis: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final/blob/master/ipynb/python%20model%20-%20isolated.ipynb)
 
 For more information, please [raise an issue](https://github.com/aaronshifman/modeling_final/issues/new) on the repository or contact the maintainers directly. 

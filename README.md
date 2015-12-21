@@ -11,8 +11,10 @@ This repository contains all work pertaining to the report entitled "Extending t
 
 
 Live Coupled Oscilator Model: [Click here](https://ccole.shinyapps.io/fn_ex)
+
 Supplemental Material: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final
 /blob/master/ipynb/Supplemental_Material.ipynb)
+
 Full Analysis: [Click here](http://nbviewer.ipython.org/github/aaronshifman/modeling_final/blob/master/ipynb/python%20model%20-%20isolated.ipynb)
 
 For more information, please [raise an issue](https://github.com/aaronshifman/modeling_final/issues/new) on the repository or contact the maintainers directly. 

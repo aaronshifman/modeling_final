@@ -268,7 +268,7 @@ Note that the above has used paramters such that the stable limit cycle is susta
 % subsection coupled_oscillators (end)
 
 
-Additionally, we describe the frequency change as a function of the number of neurons in the system. As frequency ($f$) is defined by $\frac{1}{T}$, with increasing number of neurons, frequency decreases. At the extreme, as $\lim\limits_{n \rightarrow \infty} T \rightarrow \infty$ implies $\lim\limits_{n \rightarrow \infty} f \rightarrow 0$ .
+Additionally, we describe the frequency change as a function of the number of neurons in the system. As frequency ($f$) is defined by $\frac{1}{T}$, with increasing number of neurons, frequency decreases. At the extreme, as $\lim\limits_{n \rightarrow \infty} T \rightarrow \infty \Rightarrow \lim\limits_{n \rightarrow \infty} f \rightarrow 0$ .
 
 
 
@@ -301,7 +301,7 @@ Our proposed extension to the FN model plans to shed light on the geneisis, prog
 
 \section{Necrosis Propagation}
 
-As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, we define define pro-necrotic burden as $\nu_i$, with total burden of the system $\zeta$ equal to $\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
+As part of the normal cell cycle, programmed cell death (apoptosis) exists and it serves several purposes. In most cases, it is both irreversible and adaptive (beneficial) for the organism. However in some cases, apoptosis can occur accidentally in which case an irreversible destruction of the cell will occur. In our model, we assume that necrosis is a function of an underlying accumulation of pro-apoptotic proteins, potentially introduced as a byproduct of disease. As such, necrosis is a continuous state of each cell. For cell $i$ of $n$, we define define pro-necrotic burden as $\nu_i$, with total burden of the system ($\zeta$) equal to $\frac{1}{n} \sum^n_{i=1} \nu_i$. Note that $\nu_{1}, ..., \nu_{n} \in [0,1]$ and is a monotonically increasing function with respect to time. 
 
 
 \section{Static Disease Burden} % (fold)
@@ -430,7 +430,7 @@ In order to extend this model to model cardiac necrosis, we use the previously d
 
 % subsection disease_model (end)
 
-We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state and 0 as an unstable steady state. Additionally, we require that any concentration of $\nu_{0i}$ will eventually lead to cell death. We incorporate a ``rate'' constant $\gamma$ which will hereafter be defined by $\gamma = 1$ for the sake of this report. We chose the following model and plot it in \textbf{Figure 2.5}:
+We wish to construct a model of $\nu_{i}$ evolution where, eventually, the disease will destroy the cell. Thus, we wish to have 1 (complete dampening) as a stable steady state and 0 as an unstable steady state. Additionally, we require that any concentration of $\nu_{i}$ will eventually lead to cell death. We incorporate a ``rate'' constant $\gamma$ which will hereafter be defined by $\gamma = 1$ for the sake of this report. We chose the following model and plot it in \textbf{Figure 2.5}:
 
 $$ \frac{d \nu_i}{dt} = \dot{\nu} = \gamma \cdot \nu_i (1 - \nu_i) $$
 
@@ -498,7 +498,7 @@ Additionally, we examine the effect of necrosis density on system performance in
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \includegraphics[width=\textwidth]{dynA2}
-        \caption{Minimal necrotic burden per neuron in a dynamic disease model. $\nu_{1,2,3,4,5} = 0.1, \alpha = 0.01, \beta = 0.5,c = 0.1$}
+        \caption{Minimal necrotic burden per individual neuron in a dynamic disease model. $\nu_{1,2,3,4,5} = 0.1, \alpha = 0.01, \beta = 0.5,c = 0.1$}
         \label{fig:dynA2}
     \end{subfigure}
     \hfill %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 

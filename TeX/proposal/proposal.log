@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 DEC 2015 14:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 DEC 2015 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -188,6 +188,44 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/floatrow/floatrow.sty
+Package: floatrow 2008/08/02 v0.3b floatrow: float package extension
+\c@float@type=\count116
+\float@exts=\toks21
+\float@box=\box30
+\@floatcapt=\box31
+Package floatrow Info: Modified float package code loaded on input line 455.
+Package floatrow Info: Modified rotfloat package code loaded on input line 473.
+
+\FR@everyfloat=\toks22
+\flrow@foot=\insert233
+\FB@wd=\dimen126
+\FBo@wd=\dimen127
+\FBc@wd=\dimen128
+\FBo@ht=\skip46
+\FBc@ht=\skip47
+\FBf@ht=\skip48
+\FBo@max=\skip49
+\FBc@max=\skip50
+\FBf@max=\skip51
+\c@FBl@b=\count117
+\floatbox@depth=\count118
+\c@FRobj=\count119
+\c@FRsobj=\count120
+\Xhsize=\skip52
+\sXhsize=\skip53
+\Zhsize=\skip54
+\sZhsize=\skip55
+\flrow@rowbox=\box32
+\FR@Zunitlength=\dimen129
+\c@FBcnt=\count121
+\FPOScnt=\count122
+\LTleft=\skip56
+\LTright=\skip57
+\LTleft=\skip58
+\LTright=\skip59
+\flrow@types=\toks23
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
@@ -245,14 +283,14 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen126
-\Hy@linkcounter=\count116
-\Hy@pagecounter=\count117
+\@linkdim=\dimen130
+\Hy@linkcounter=\count123
+\Hy@pagecounter=\count124
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count118
+\Hy@SavedSpaceFactor=\count125
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -264,17 +302,17 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4688.
-\c@Hy@tempcnt=\count119
+\c@Hy@tempcnt=\count126
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen127
-\Fld@menulength=\count120
-\Field@Width=\dimen128
-\Fld@charsize=\dimen129
+\XeTeXLinkMargin=\dimen131
+\Fld@menulength=\count127
+\Field@Width=\dimen132
+\Fld@charsize=\dimen133
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -284,45 +322,45 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count121
-\c@Item=\count122
-\c@Hfootnote=\count123
+\Hy@abspage=\count128
+\c@Item=\count129
+\c@Hfootnote=\count130
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count124
-\c@bookmark@seq@number=\count125
+\Fld@listcount=\count131
+\c@bookmark@seq@number=\count132
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip46
+\Hy@SectionHShift=\skip60
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 18.
+Package hyperref Info: Option `colorlinks' set `true' on input line 20.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip47
-\f@ncyO@elh=\skip48
-\f@ncyO@erh=\skip49
-\f@ncyO@olh=\skip50
-\f@ncyO@orh=\skip51
-\f@ncyO@elf=\skip52
-\f@ncyO@erf=\skip53
-\f@ncyO@olf=\skip54
-\f@ncyO@orf=\skip55
+\fancy@headwidth=\skip61
+\f@ncyO@elh=\skip62
+\f@ncyO@erh=\skip63
+\f@ncyO@olh=\skip64
+\f@ncyO@orh=\skip65
+\f@ncyO@elf=\skip66
+\f@ncyO@erf=\skip67
+\f@ncyO@olf=\skip68
+\f@ncyO@orf=\skip69
 )
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 24.
+less on input line 26.
 
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 25.
+less on input line 27.
 
 (./proposal.aux
 
@@ -370,33 +408,33 @@ LaTeX Warning: Label `sec:web_app' multiply defined.
 )
 \openout1 = `proposal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
  (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
-\scratchdimen=\dimen130
-\scratchbox=\box30
-\nofMPsegments=\count127
-\nofMParguments=\count128
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count129
-\MPscratchDim=\dimen131
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count133
+\scratchdimen=\dimen134
+\scratchbox=\box33
+\nofMPsegments=\count134
+\nofMParguments=\count135
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count136
+\MPscratchDim=\dimen135
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -413,11 +451,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: floatrow package is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: floatrow package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count132
-\AtBeginShipoutBox=\box31
+\c@lstlisting=\count139
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
@@ -427,7 +467,8 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 142.
 )
-Package hyperref Info: Link coloring ON on input line 59.
+\AtBeginShipoutBox=\box34
+Package hyperref Info: Link coloring ON on input line 61.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -435,11 +476,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count133
+\c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 59.
-LaTeX Info: Redefining \pageref on input line 59.
-LaTeX Info: Redefining \nameref on input line 59.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
 
 (./proposal.out) (./proposal.out)
 \@outlinefile=\write3
@@ -448,17 +489,17 @@ LaTeX Info: Redefining \nameref on input line 59.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <24> not available
-(Font)              size <24.88> substituted on input line 62.
+(Font)              size <24.88> substituted on input line 64.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <24> not available
-(Font)              size <24.88> substituted on input line 62.
+(Font)              size <24.88> substituted on input line 64.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
+LaTeX Font Info:    Try loading font information for U+msa on input line 64.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 64.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -469,14 +510,14 @@ arning (ext4): destination with the same identifier (name{page.1}) has been alr
 eady used, duplicate ignored
 <to be read again> 
                    \relax 
-l.69 \end{dedication}
+l.71 \end{dedication}
                       [1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \end{abstract}
+l.76 \end{abstract}
                     [1
 
 ] (./proposal.toc)
@@ -487,7 +528,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \newpage
+l.83 \newpage
               [1
 
 ] (./proposal.lof
@@ -515,16 +556,15 @@ Chapter 1.
 [4
 
 ] [5]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/model.png, id=229, 433.62pt 
-x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/model.png Graphic file 
-(type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/model.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/mode
-l.png used on input line 117.
+</Users/Chris/repos/modeling_final/TeX/images/model.png, id=229, 433.62pt x 289
+.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/model.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/model.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/model.png
+ used on input line 119.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
-
-[6 </Users/yvesmarcel/repos/modeling_final/TeX/images/model.png>]
+ [6 </Users/Chris/repos/modeling_final/TeX/images/model.png>]
 Missing character: There is no â in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no ’ in font cmr10!
@@ -532,298 +572,285 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no ˆ in font cmr10!
 Missing character: There is no ’ in font cmr10!
 
-Overfull \hbox (42.93207pt too wide) detected at line 178
+Overfull \hbox (42.93207pt too wide) detected at line 180
 \OML/cmm/m/it/10.95 ^^U[] \OMS/cmsy/m/n/10.95 ^^Y [] []
  []
 
 
-Overfull \hbox (39.11063pt too wide) detected at line 182
+Overfull \hbox (39.11063pt too wide) detected at line 184
 \OML/cmm/m/it/10.95 v[] \OMS/cmsy/m/n/10.95 ^^Y []
  []
 
 [7]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/eig.png, id=246, 433.62pt x 
-289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/eig.png Graphic file (t
-ype png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/eig.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/eig.
-png used on input line 189.
+</Users/Chris/repos/modeling_final/TeX/images/eig.png, id=246, 433.62pt x 289.0
+8pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/eig.png Graphic file (type p
+ng)
+ <use /Users/Chris/repos/modeling_final/TeX/images/eig.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/eig.png u
+sed on input line 191.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/hbifur.png, id=247, 433.62pt
- x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/hbifur.png Graphic file
- (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/hbifur.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/hbif
-ur.png used on input line 201.
+</Users/Chris/repos/modeling_final/TeX/images/hbifur.png, id=247, 433.62pt x 28
+9.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/hbifur.png Graphic file (typ
+e png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/hbifur.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/hbifur.pn
+g used on input line 203.
 (pdftex.def)             Requested size: 172.79846pt x 115.19766pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/lbifur.png, id=248, 433.62pt
+</Users/Chris/repos/modeling_final/TeX/images/lbifur.png, id=248, 433.62pt x 28
+9.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/lbifur.png Graphic file (typ
+e png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/lbifur.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/lbifur.pn
+g used on input line 210.
+(pdftex.def)             Requested size: 172.79846pt x 115.19766pt.
+
+</Users/Chris/repos/modeling_final/TeX/images/phase-plane.png, id=249, 433.62pt
  x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/lbifur.png Graphic file
+File: /Users/Chris/repos/modeling_final/TeX/images/phase-plane.png Graphic file
  (type png)
 
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/lbifur.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/lbif
-ur.png used on input line 208.
-(pdftex.def)             Requested size: 172.79846pt x 115.19766pt.
- [8 </Users/yvesmarcel/repos/modeling_final/TeX/images/eig.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/phase-plane.png, id=254, 433
-.62pt x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/phase-plane.png Graphic
- file (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/phase-plane.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/phas
-e-plane.png used on input line 221.
+<use /Users/Chris/repos/modeling_final/TeX/images/phase-plane.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/phase-pla
+ne.png used on input line 223.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
+ [8 </Users/Chris/repos/modeling_final/TeX/images/eig.png>] [9 </Users/Chris/re
+pos/modeling_final/TeX/images/hbifur.png> </Users/Chris/repos/modeling_final/Te
+X/images/lbifur.png> </Users/Chris/repos/modeling_final/TeX/images/phase-plane.
+png>]
 
-[9 </Users/yvesmarcel/repos/modeling_final/TeX/images/hbifur.png> </Users/yvesm
-arcel/repos/modeling_final/TeX/images/lbifur.png> </Users/yvesmarcel/repos/mode
-ling_final/TeX/images/phase-plane.png>]
+LaTeX Warning: Command \textless invalid in math mode on input line 233.
 
-LaTeX Warning: Command \textless invalid in math mode on input line 231.
-
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 231.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 233.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 231.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 233.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 231.
+LaTeX Warning: Command \textless invalid in math mode on input line 233.
 
-
-</Users/yvesmarcel/repos/modeling_final/TeX/images/2couple.png, id=262, 433.62p
-t x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/2couple.png Graphic fil
-e (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/2couple.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/2cou
-ple.png used on input line 254.
-(pdftex.def)             Requested size: 270.0pt x 180.00848pt.
- [10]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/ncouple.png, id=269, 433.62p
-t x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/ncouple.png Graphic fil
-e (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/ncouple.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/ncou
-ple.png used on input line 262.
-(pdftex.def)             Requested size: 270.0pt x 180.00848pt.
- [11 </Users/yvesmarcel/repos/modeling_final/TeX/images/2couple.png> </Users/yv
-esmarcel/repos/modeling_final/TeX/images/ncouple.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/freq_static.png, id=276, 433
-.62pt x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/freq_static.png Graphic
- file (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/freq_static.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/freq
-_static.png used on input line 276.
+[10]
+</Users/Chris/repos/modeling_final/TeX/images/2couple.png, id=268, 433.62pt x 2
+89.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/2couple.png Graphic file (ty
+pe png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/2couple.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2couple.p
+ng used on input line 256.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-[12 </Users/yvesmarcel/repos/modeling_final/TeX/images/freq_static.png>]
+</Users/Chris/repos/modeling_final/TeX/images/ncouple.png, id=269, 433.62pt x 2
+89.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/ncouple.png Graphic file (ty
+pe png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/ncouple.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/ncouple.p
+ng used on input line 264.
+(pdftex.def)             Requested size: 270.0pt x 180.00848pt.
+
+[11 </Users/Chris/repos/modeling_final/TeX/images/2couple.png> </Users/Chris/re
+pos/modeling_final/TeX/images/ncouple.png>]
+</Users/Chris/repos/modeling_final/TeX/images/freq_static.png, id=276, 433.62pt
+ x 289.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/freq_static.png Graphic file
+ (type png)
+
+<use /Users/Chris/repos/modeling_final/TeX/images/freq_static.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/freq_stat
+ic.png used on input line 278.
+(pdftex.def)             Requested size: 270.0pt x 180.00848pt.
+ [12 </Users/Chris/repos/modeling_final/TeX/images/freq_static.png>]
 Chapter 2.
 [13
 
 ] [14]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/2stat.png, id=290, 385.44pt 
-x 256.96pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/2stat.png Graphic file 
-(type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/2stat.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/2sta
-t.png used on input line 334.
+</Users/Chris/repos/modeling_final/TeX/images/2stat.png, id=290, 385.44pt x 256
+.96pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/2stat.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/2stat.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2stat.png
+ used on input line 336.
 (pdftex.def)             Requested size: 270.0pt x 180.00015pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/nstat.png, id=291, 385.44pt 
-x 256.96pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/nstat.png Graphic file 
-(type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/nstat.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/nsta
-t.png used on input line 341.
+</Users/Chris/repos/modeling_final/TeX/images/nstat.png, id=291, 385.44pt x 256
+.96pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/nstat.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/nstat.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/nstat.png
+ used on input line 343.
 (pdftex.def)             Requested size: 270.0pt x 180.00015pt.
-
-[15 </Users/yvesmarcel/repos/modeling_final/TeX/images/2stat.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/statA.png, id=297, 385.44pt 
-x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/statA.png Graphic file 
-(type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/statA.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/stat
-A.png used on input line 368.
+ [15 </Users/Chris/repos/modeling_final/TeX/images/2stat.png>]
+</Users/Chris/repos/modeling_final/TeX/images/statA.png, id=297, 385.44pt x 266
+.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/statA.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/statA.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statA.png
+ used on input line 370.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 369--369
+Underfull \hbox (badness 1303) in paragraph at lines 371--371
 []\OT1/cmr/bx/n/10 (a) |\OT1/cmr/m/n/10 Dis-persed necrotic bur-den in a
  []
 
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/statB.png, id=298, 385.44pt 
-x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/statB.png Graphic file 
-(type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/statB.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/stat
-B.png used on input line 375.
+</Users/Chris/repos/modeling_final/TeX/images/statB.png, id=298, 385.44pt x 266
+.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/statB.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/statB.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statB.png
+ used on input line 377.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
- [16 </Users/yvesmarcel/repos/modeling_final/TeX/images/nstat.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/statA2.png, id=305, 385.44pt
- x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/statA2.png Graphic file
- (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/statA2.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/stat
-A2.png used on input line 396.
+ [16 </Users/Chris/repos/modeling_final/TeX/images/nstat.png>]
+</Users/Chris/repos/modeling_final/TeX/images/statA2.png, id=305, 385.44pt x 26
+6.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/statA2.png Graphic file (typ
+e png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/statA2.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statA2.pn
+g used on input line 398.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/statB2.png, id=306, 385.44pt
- x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/statB2.png Graphic file
- (type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/statB2.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/stat
-B2.png used on input line 403.
+</Users/Chris/repos/modeling_final/TeX/images/statB2.png, id=306, 385.44pt x 26
+6.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/statB2.png Graphic file (typ
+e png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/statB2.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/statB2.pn
+g used on input line 405.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
- [17 </Users/yvesmarcel/repos/modeling_final/TeX/images/statA.png> </Users/yves
-marcel/repos/modeling_final/TeX/images/statB.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/dynamic.png, id=314, 433.62p
-t x 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynamic.png Graphic fil
-e (type png)
 
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/dynamic.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/dyna
-mic.png used on input line 440.
+[17 </Users/Chris/repos/modeling_final/TeX/images/statA.png> </Users/Chris/repo
+s/modeling_final/TeX/images/statB.png>]
+</Users/Chris/repos/modeling_final/TeX/images/dynamic.png, id=314, 433.62pt x 2
+89.08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/dynamic.png Graphic file (ty
+pe png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/dynamic.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynamic.p
+ng used on input line 442.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/2dyn.png, id=315, 433.62pt x
- 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/2dyn.png Graphic file (
-type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/2dyn.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/2dyn
-.png used on input line 451.
+[18 </Users/Chris/repos/modeling_final/TeX/images/statA2.png> </Users/Chris/rep
+os/modeling_final/TeX/images/statB2.png>]
+</Users/Chris/repos/modeling_final/TeX/images/2dyn.png, id=322, 433.62pt x 289.
+08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png Graphic file (type 
+png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/2dyn.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/2dyn.png 
+used on input line 453.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/ndyn.png, id=316, 433.62pt x
- 289.08pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/ndyn.png Graphic file (
-type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/ndyn.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/ndyn
-.png used on input line 460.
+</Users/Chris/repos/modeling_final/TeX/images/ndyn.png, id=323, 433.62pt x 289.
+08pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/ndyn.png Graphic file (type 
+png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/ndyn.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/ndyn.png 
+used on input line 462.
 (pdftex.def)             Requested size: 270.0pt x 180.00848pt.
-
-[18 </Users/yvesmarcel/repos/modeling_final/TeX/images/statA2.png> </Users/yves
-marcel/repos/modeling_final/TeX/images/statB2.png>] [19 </Users/yvesmarcel/repo
-s/modeling_final/TeX/images/dynamic.png> </Users/yvesmarcel/repos/modeling_fina
-l/TeX/images/2dyn.png>]
-</Users/yvesmarcel/repos/modeling_final/TeX/images/dynA.png, id=330, 385.44pt x
- 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA.png Graphic file (
-type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA
-.png used on input line 471.
+ [19 </Users/Chris/repos/modeling_final/TeX/images/dynamic.png> </Users/Chris/r
+epos/modeling_final/TeX/images/2dyn.png>]
+</Users/Chris/repos/modeling_final/TeX/images/dynA.png, id=330, 385.44pt x 266.
+9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/dynA.png Graphic file (type 
+png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/dynA.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynA.png 
+used on input line 473.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 1303) in paragraph at lines 472--472
+Underfull \hbox (badness 1303) in paragraph at lines 474--474
 []\OT1/cmr/bx/n/10 (a) |\OT1/cmr/m/n/10 Dis-persed necrotic bur-den in a
  []
 
 
-Underfull \hbox (badness 4353) in paragraph at lines 472--472
+Underfull \hbox (badness 4353) in paragraph at lines 474--474
 \OT1/cmr/m/n/10 dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n/1
 0 =
  []
 
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/dynB.png, id=331, 385.44pt x
- 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB.png Graphic file (
-type png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB
-.png used on input line 478.
+</Users/Chris/repos/modeling_final/TeX/images/dynB.png, id=331, 385.44pt x 266.
+9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/dynB.png Graphic file (type 
+png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/dynB.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynB.png 
+used on input line 480.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 4353) in paragraph at lines 479--479
+Underfull \hbox (badness 4353) in paragraph at lines 481--481
 \OT1/cmr/m/n/10 dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n/1
 0 =
  []
 
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/dynA2.png, id=332, 385.44pt 
-x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA2.png Graphic file 
-(type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA2.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynA
-2.png used on input line 498.
+</Users/Chris/repos/modeling_final/TeX/images/dynA2.png, id=332, 385.44pt x 266
+.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/dynA2.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynA2.png
+ used on input line 500.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/dynB2.png, id=333, 385.44pt 
-x 266.9975pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB2.png Graphic file 
-(type png)
-
-<use /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB2.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/dynB
-2.png used on input line 505.
+</Users/Chris/repos/modeling_final/TeX/images/dynB2.png, id=333, 385.44pt x 266
+.9975pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/dynB2.png Graphic file (type
+ png)
+ <use /Users/Chris/repos/modeling_final/TeX/images/dynB2.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/dynB2.png
+ used on input line 507.
 (pdftex.def)             Requested size: 172.79846pt x 119.69553pt.
 
-Underfull \hbox (badness 4846) in paragraph at lines 506--506
+Underfull \hbox (badness 4846) in paragraph at lines 508--508
 []\OT1/cmr/bx/n/10 (b) |\OT1/cmr/m/n/10 Se-quen-tial necrotic bur-den in
  []
 
 
-Underfull \hbox (badness 2452) in paragraph at lines 506--506
+Underfull \hbox (badness 2452) in paragraph at lines 508--508
 \OT1/cmr/m/n/10 a dy-namic dis-ease model. $\OML/cmm/m/it/10 ^^W[] \OT1/cmr/m/n
 /10 =
  []
 
-[20 </Users/yvesmarcel/repos/modeling_final/TeX/images/ndyn.png>] [21 </Users/y
-vesmarcel/repos/modeling_final/TeX/images/dynA.png> </Users/yvesmarcel/repos/mo
-deling_final/TeX/images/dynB.png> </Users/yvesmarcel/repos/modeling_final/TeX/i
-mages/dynA2.png> </Users/yvesmarcel/repos/modeling_final/TeX/images/dynB2.png>]
-[22]
+[20 </Users/Chris/repos/modeling_final/TeX/images/ndyn.png>] [21 </Users/Chris/
+repos/modeling_final/TeX/images/dynA.png> </Users/Chris/repos/modeling_final/Te
+X/images/dynB.png> </Users/Chris/repos/modeling_final/TeX/images/dynA2.png> </U
+sers/Chris/repos/modeling_final/TeX/images/dynB2.png>] [22]
 Chapter 3.
 
-</Users/yvesmarcel/repos/modeling_final/TeX/images/R.png, id=352, 1071.00125pt 
-x 949.5475pt>
-File: /Users/yvesmarcel/repos/modeling_final/TeX/images/R.png Graphic file (typ
-e png)
- <use /Users/yvesmarcel/repos/modeling_final/TeX/images/R.png>
-Package pdftex.def Info: /Users/yvesmarcel/repos/modeling_final/TeX/images/R.pn
-g used on input line 569.
+</Users/Chris/repos/modeling_final/TeX/images/R.png, id=352, 1071.00125pt x 949
+.5475pt>
+File: /Users/Chris/repos/modeling_final/TeX/images/R.png Graphic file (type png
+)
+ <use /Users/Chris/repos/modeling_final/TeX/images/R.png>
+Package pdftex.def Info: /Users/Chris/repos/modeling_final/TeX/images/R.png use
+d on input line 571.
 (pdftex.def)             Requested size: 180.0pt x 159.58084pt.
+ [23
 
-[23
-
-] (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+]
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
-Overfull \hbox (47.34424pt too wide) in paragraph at lines 582--583
+Overfull \hbox (47.34424pt too wide) in paragraph at lines 584--585
 [][][][][][][][][][][][][][][][][][][][] 
  []
 
-[24 </Users/yvesmarcel/repos/modeling_final/TeX/images/R.png>]
-Overfull \hbox (47.34424pt too wide) in paragraph at lines 612--613
+[24 </Users/Chris/repos/modeling_final/TeX/images/R.png>]
+Overfull \hbox (47.34424pt too wide) in paragraph at lines 614--615
 [][][][][][][][][][][][][][][][] 
  []
 
@@ -838,14 +865,14 @@ Missing character: There is no “ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no “ in font cmr10!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 647.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 649.
 [26
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 647.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 649.
  (./proposal.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 647.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 647.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 649.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 649.
 Package rerunfilecheck Info: File `proposal.out' has not changed.
 (rerunfilecheck)             Checksum: E1EA3A7941CF3792B4F042D69F3779EF;1762.
 
@@ -856,13 +883,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 647.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 649.
  ) 
 Here is how much of TeX's memory you used:
- 9024 strings out of 493089
- 138554 string characters out of 6134842
- 245814 words of memory out of 5000000
- 12280 multiletter control sequences out of 15000+600000
+ 9539 strings out of 493089
+ 145572 string characters out of 6134842
+ 256646 words of memory out of 5000000
+ 12790 multiletter control sequences out of 15000+600000
  15577 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,12n,43p,869b,1009s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -882,7 +909,7 @@ live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on proposal.pdf (29 pages, 968275 bytes).
+Output written on proposal.pdf (29 pages, 969711 bytes).
 PDF statistics:
  468 PDF objects out of 1000 (max. 8388607)
  373 compressed objects within 4 object streams

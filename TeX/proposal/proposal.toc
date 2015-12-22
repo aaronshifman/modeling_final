@@ -15,7 +15,7 @@
 \contentsline {subsection}{\numberline {2.3.4}Discussion}{17}{subsection.2.3.4}
 \contentsline {section}{\numberline {2.4}Dynamic Disease Burden}{18}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Disease Model}{18}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Dispersion of Necrosis}{19}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Dispersion of Necrosis}{20}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Density of Necrosis}{20}{subsection.2.4.3}
 \contentsline {subsection}{\numberline {2.4.4}Discussion}{20}{subsection.2.4.4}
 \contentsline {section}{\numberline {2.5}Conclusion}{22}{section.2.5}
